@@ -3375,10 +3375,10 @@ i = 0;
 void setup()
 {
 
-OSCCONbits.IRCF = 0b1111;
+OSCCONbits.IRCF = 0b1101;
 
 
-TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(15916000L/(16UL * 9600) -1)); RCSTA = (0|0x90); TXSTA = (0x4|0|0x20);
+TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(4000000L/(16UL * 9600) -1)); RCSTA = (0|0x90); TXSTA = (0x4|0|0x20);
 
 
 TRISCbits.TRISC0 = 0;

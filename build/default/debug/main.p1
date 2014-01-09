@@ -1,12 +1,46 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"6395 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
-[v _TXIF `Vb ~T0 @X0 0 e@140 ]
-"2603
-[v _TXREG `Vuc ~T0 @X0 0 e@410 ]
-"6185
+"6185 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
 [v _RCIF `Vb ~T0 @X0 0 e@141 ]
-"2584
-[v _RCREG `Vuc ~T0 @X0 0 e@409 ]
+"22 /Applications/microchip/xc8/v1.21/include/conio.h
+[v _getch `(uc ~T0 @X0 0 ef ]
+"1367 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
+[s S76 :2 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S76 . SCS IRCF SPLLMULT SPLLEN ]
+"1373
+[s S77 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S77 . SCS0 SCS1 IRCF0 IRCF1 IRCF2 IRCF3 ]
+"1366
+[u S75 `S76 1 `S77 1 ]
+[n S75 . . . ]
+"1382
+[v _OSCCONbits `VS75 ~T0 @X0 0 e@153 ]
+"6365
+[v _TRISC5 `Vb ~T0 @X0 0 e@1141 ]
+"6363
+[v _TRISC4 `Vb ~T0 @X0 0 e@1140 ]
+"2622
+[v _SPBRG `Vus ~T0 @X0 0 e@411 ]
+"2666
+[v _RCSTA `Vuc ~T0 @X0 0 e@413 ]
+"2727
+[v _TXSTA `Vuc ~T0 @X0 0 e@414 ]
+"952
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 ]
+"951
+[u S58 `S59 1 ]
+[n S58 . . ]
+"961
+[v _TRISCbits `VS58 ~T0 @X0 0 e@142 ]
+"453
+[v _PORTC `Vuc ~T0 @X0 0 e@14 ]
+"6183
+[v _RCIE `Vb ~T0 @X0 0 e@1165 ]
+"6073
+[v _PEIE `Vb ~T0 @X0 0 e@94 ]
+"5975
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+[p mainexit ]
 [; ;pic16f1455.h: 44: extern volatile unsigned char INDF0 @ 0x000;
 "46 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
 [; ;pic16f1455.h: 46: asm("INDF0 equ 00h");
@@ -2401,6 +2435,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 28: extern void _nop(void);
 [; ;pic.h: 77: extern unsigned int flash_read(unsigned short addr);
 [; ;pic.h: 151: extern void _delay(unsigned long);
+"9 main.c
+[p x FOSC=INTOSC ]
+"10
+[p x WDTE=OFF ]
+"11
+[p x PWRTE=ON ]
+"12
+[p x MCLRE=ON ]
+"13
+[p x CP=OFF ]
+"14
+[p x BOREN=ON ]
+"15
+[p x CLKOUTEN=ON ]
+"16
+[p x IESO=OFF ]
+"17
+[p x FCMEN=OFF ]
+"20
+[p x WRT=OFF ]
+"21
+[p x CPUDIV=CLKDIV2 ]
+"22
+[p x USBLSCLK=48MHz ]
+"23
+[p x PLLMULT=3x ]
+"24
+[p x PLLEN=DISABLED ]
+"25
+[p x STVREN=ON ]
+"26
+[p x BORV=LO ]
+"27
+[p x LPBOR=OFF ]
+"28
+[p x LVP=OFF ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -2437,78 +2507,428 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.h: 42: void putch(unsigned char);
 [; ;usart.h: 43: unsigned char getch(void);
 [; ;usart.h: 44: unsigned char getche(void);
-"7 usart.c
-[v _putch `(v ~T0 @X0 1 ef1`uc ]
+"36
+[v _packetBuffer `uc ~T0 @X0 -> 6 `i e ]
+[; ;main.c: 36: unsigned char packetBuffer[6];
+"37
+[v _packetReceived `uc ~T0 @X0 1 e ]
+[i _packetReceived
+-> -> 0 `i `uc
+]
+[; ;main.c: 37: unsigned char packetReceived = 0;
+"38
+[v _packetCorrupt `uc ~T0 @X0 1 e ]
+[i _packetCorrupt
+-> -> 0 `i `uc
+]
+[; ;main.c: 38: unsigned char packetCorrupt = 0;
+"41
+[v _rxchar `uc ~T0 @X0 1 e ]
+[v _i `uc ~T0 @X0 1 e ]
+[i _i
+-> -> 0 `i `uc
+]
+[; ;main.c: 41: unsigned char rxchar, i = 0;
+"44
+[v F2490 `(v ~T0 @X0 1 tf ]
+[v _ISR `IF2490 ~T0 @X0 1 e ]
 {
-[; ;usart.c: 5: void
-[; ;usart.c: 6: putch(unsigned char byte)
-[; ;usart.c: 7: {
-[e :U _putch ]
-[v _byte `uc ~T0 @X0 1 r1 ]
+[; ;main.c: 43: void interrupt ISR()
+[; ;main.c: 44: {
+[e :U _ISR ]
 [f ]
-[; ;usart.c: 9: while(!TXIF)
-"9
-[e $U 304  ]
-[e :U 305 ]
-[; ;usart.c: 10: continue;
-"10
-[e $U 304  ]
-[e :U 304 ]
-"9
-[e $ ! _TXIF 305  ]
+[; ;main.c: 45: if (RCIF)
+"45
+[e $ ! _RCIF 304  ]
+[; ;main.c: 46: {
+"46
+{
+[; ;main.c: 48: rxchar = getch();
+"48
+[e = _rxchar ( _getch ..  ]
+[; ;main.c: 49: if (packetCorrupt)
+"49
+[e $ ! != -> _packetCorrupt `i -> -> -> 0 `i `uc `i 305  ]
+[; ;main.c: 50: {
+"50
+{
+[; ;main.c: 52: if (rxchar == 0x02)
+"52
+[e $ ! == -> _rxchar `i -> 2 `i 306  ]
+[; ;main.c: 53: {
+"53
+{
+[; ;main.c: 55: packetCorrupt = 0;
+"55
+[e = _packetCorrupt -> -> 0 `i `uc ]
+"56
+}
+[; ;main.c: 56: }
+[e $U 307  ]
+"57
 [e :U 306 ]
-[; ;usart.c: 11: TXREG = byte;
-"11
-[e = _TXREG _byte ]
-[; ;usart.c: 12: }
-"12
+[; ;main.c: 57: else
+[; ;main.c: 58: {
+"58
+{
+[; ;main.c: 59: return;
+"59
+[e $UE 303  ]
+"60
+}
+[e :U 307 ]
+"61
+}
+[e :U 305 ]
+[; ;main.c: 60: }
+[; ;main.c: 61: }
+[; ;main.c: 62: packetBuffer[i] = rxchar;
+"62
+[e = *U + &U _packetBuffer * -> _i `ux -> -> # *U &U _packetBuffer `ui `ux _rxchar ]
+[; ;main.c: 63: i++;
+"63
+[e ++ _i -> -> 1 `i `uc ]
+[; ;main.c: 64: if (i >= 6)
+"64
+[e $ ! >= -> _i `i -> 6 `i 308  ]
+[; ;main.c: 65: {
+"65
+{
+[; ;main.c: 67: packetReceived = 1;
+"67
+[e = _packetReceived -> -> 1 `i `uc ]
+[; ;main.c: 68: i = 0;
+"68
+[e = _i -> -> 0 `i `uc ]
+"69
+}
+[e :U 308 ]
+"70
+}
+[e :U 304 ]
+[; ;main.c: 69: }
+[; ;main.c: 70: }
+[; ;main.c: 71: }
+"71
 [e :UE 303 ]
 }
-"15
-[v _getch `(uc ~T0 @X0 1 ef ]
+"74
+[v _setup `(v ~T0 @X0 1 ef ]
 {
-[; ;usart.c: 14: unsigned char
-[; ;usart.c: 15: getch() {
-[e :U _getch ]
+[; ;main.c: 73: void setup()
+[; ;main.c: 74: {
+[e :U _setup ]
 [f ]
-[; ;usart.c: 17: while(!RCIF)
-"17
-[e $U 308  ]
-[e :U 309 ]
-[; ;usart.c: 18: continue;
-"18
-[e $U 308  ]
-[e :U 308 ]
-"17
-[e $ ! _RCIF 309  ]
-[e :U 310 ]
-[; ;usart.c: 19: return RCREG;
-"19
-[e ) _RCREG ]
-[e $UE 307  ]
-[; ;usart.c: 20: }
-"20
-[e :UE 307 ]
+[; ;main.c: 76: OSCCONbits.IRCF = 0b1101;
+"76
+[e = . . _OSCCONbits 0 1 -> -> 13 `i `uc ]
+[; ;main.c: 79: TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(4000000L/(16UL * 9600) -1)); RCSTA = (0|0x90); TXSTA = (0x4|0|0x20);
+"79
+[e = _TRISC5 -> -> 1 `i `b ]
+[e = _TRISC4 -> -> 1 `i `b ]
+[e = _SPBRG -> -> - / -> -> 4000000 `l `ul * -> 16 `ul -> -> -> 9600 `i `l `ul -> -> -> 1 `i `l `ul `i `us ]
+[e = _RCSTA -> | -> 0 `i -> 144 `i `uc ]
+[e = _TXSTA -> | | -> 4 `i -> 0 `i -> 32 `i `uc ]
+[; ;main.c: 82: TRISCbits.TRISC0 = 0;
+"82
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 83: TRISCbits.TRISC1 = 0;
+"83
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 84: TRISCbits.TRISC2 = 0;
+"84
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 85: TRISCbits.TRISC3 = 0;
+"85
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 87: PORTC = 0x00;
+"87
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;main.c: 90: RCIE = 1;
+"90
+[e = _RCIE -> -> 1 `i `b ]
+[; ;main.c: 91: PEIE = 1;
+"91
+[e = _PEIE -> -> 1 `i `b ]
+[; ;main.c: 92: GIE = 1;
+"92
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 93: }
+"93
+[e :UE 309 ]
 }
-"24
-[v _getche `(uc ~T0 @X0 1 ef ]
+"96
+[v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;usart.c: 22: unsigned char
-[; ;usart.c: 23: getche(void)
-[; ;usart.c: 24: {
-[e :U _getche ]
+[; ;main.c: 95: void main()
+[; ;main.c: 96: {
+[e :U _main ]
 [f ]
-"25
-[v _c `uc ~T0 @X0 1 a ]
-[; ;usart.c: 25: unsigned char c;
-[; ;usart.c: 26: putch(c = getch());
-"26
-[e ( _putch (1 = _c ( _getch ..  ]
-[; ;usart.c: 27: return c;
-"27
-[e ) _c ]
-[e $UE 311  ]
-[; ;usart.c: 28: }
-"28
-[e :UE 311 ]
+[; ;main.c: 97: setup();
+"97
+[e ( _setup ..  ]
+[; ;main.c: 99: while (1)
+"99
+[e :U 312 ]
+[; ;main.c: 100: {
+"100
+{
+[; ;main.c: 101: if (packetReceived)
+"101
+[e $ ! != -> _packetReceived `i -> -> -> 0 `i `uc `i 314  ]
+[; ;main.c: 102: {
+"102
+{
+[; ;main.c: 103: if (packetBuffer[0] == 0x02 && packetBuffer[5] == 0x03)
+"103
+[e $ ! && == -> *U + &U _packetBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i == -> *U + &U _packetBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 3 `i 315  ]
+[; ;main.c: 104: {
+"104
+{
+[; ;main.c: 106: if (packetBuffer[1] == 0)
+"106
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 316  ]
+[; ;main.c: 107: {
+"107
+{
+[; ;main.c: 109: if (packetBuffer[3] == 0)
+"109
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 317  ]
+[; ;main.c: 110: {
+"110
+{
+[; ;main.c: 112: PORTC = 0b00000100;
+"112
+[e = _PORTC -> -> 4 `i `uc ]
+"113
+}
+[; ;main.c: 113: }
+[e $U 318  ]
+"114
+[e :U 317 ]
+[; ;main.c: 114: else if (packetBuffer[3] == 1)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 319  ]
+[; ;main.c: 115: {
+"115
+{
+[; ;main.c: 117: PORTC = 0b00001001;
+"117
+[e = _PORTC -> -> 9 `i `uc ]
+"118
+}
+[; ;main.c: 118: }
+[e $U 320  ]
+"119
+[e :U 319 ]
+[; ;main.c: 119: else if (packetBuffer[3] == 2)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 321  ]
+[; ;main.c: 120: {
+"120
+{
+[; ;main.c: 122: PORTC = 0b00001000;
+"122
+[e = _PORTC -> -> 8 `i `uc ]
+"123
+}
+[; ;main.c: 123: }
+[e $U 322  ]
+"124
+[e :U 321 ]
+[; ;main.c: 124: else
+[; ;main.c: 125: {
+"125
+{
+[; ;main.c: 127: packetCorrupt = 1;
+"127
+[e = _packetCorrupt -> -> 1 `i `uc ]
+"128
+}
+[e :U 322 ]
+[e :U 320 ]
+[e :U 318 ]
+"129
+}
+[; ;main.c: 128: }
+[; ;main.c: 129: }
+[e $U 323  ]
+"130
+[e :U 316 ]
+[; ;main.c: 130: else if (packetBuffer[1] == 1)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 324  ]
+[; ;main.c: 131: {
+"131
+{
+[; ;main.c: 133: if (packetBuffer[3] == 0)
+"133
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 325  ]
+[; ;main.c: 134: {
+"134
+{
+[; ;main.c: 136: PORTC = 0b00000101;
+"136
+[e = _PORTC -> -> 5 `i `uc ]
+"137
+}
+[; ;main.c: 137: }
+[e $U 326  ]
+"138
+[e :U 325 ]
+[; ;main.c: 138: else if (packetBuffer[3] == 1)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 327  ]
+[; ;main.c: 139: {
+"139
+{
+[; ;main.c: 141: PORTC = 0b00000000;
+"141
+[e = _PORTC -> -> 0 `i `uc ]
+"142
+}
+[; ;main.c: 142: }
+[e $U 328  ]
+"143
+[e :U 327 ]
+[; ;main.c: 143: else if (packetBuffer[3] == 2)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 329  ]
+[; ;main.c: 144: {
+"144
+{
+[; ;main.c: 146: PORTC = 0b00001010;
+"146
+[e = _PORTC -> -> 10 `i `uc ]
+"147
+}
+[; ;main.c: 147: }
+[e $U 330  ]
+"148
+[e :U 329 ]
+[; ;main.c: 148: else
+[; ;main.c: 149: {
+"149
+{
+[; ;main.c: 151: packetCorrupt = 1;
+"151
+[e = _packetCorrupt -> -> 1 `i `uc ]
+"152
+}
+[e :U 330 ]
+[e :U 328 ]
+[e :U 326 ]
+"153
+}
+[; ;main.c: 152: }
+[; ;main.c: 153: }
+[e $U 331  ]
+"154
+[e :U 324 ]
+[; ;main.c: 154: else if (packetBuffer[1] == 2)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 332  ]
+[; ;main.c: 155: {
+"155
+{
+[; ;main.c: 157: if (packetBuffer[3] == 0)
+"157
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 333  ]
+[; ;main.c: 158: {
+"158
+{
+[; ;main.c: 160: PORTC = 0b00000010;
+"160
+[e = _PORTC -> -> 2 `i `uc ]
+"161
+}
+[; ;main.c: 161: }
+[e $U 334  ]
+"162
+[e :U 333 ]
+[; ;main.c: 162: else if (packetBuffer[3] == 1)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 335  ]
+[; ;main.c: 163: {
+"163
+{
+[; ;main.c: 165: PORTC = 0b00000110;
+"165
+[e = _PORTC -> -> 6 `i `uc ]
+"166
+}
+[; ;main.c: 166: }
+[e $U 336  ]
+"167
+[e :U 335 ]
+[; ;main.c: 167: else if (packetBuffer[3] == 2)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 337  ]
+[; ;main.c: 168: {
+"168
+{
+[; ;main.c: 170: PORTC = 0b00000001;
+"170
+[e = _PORTC -> -> 1 `i `uc ]
+"171
+}
+[; ;main.c: 171: }
+[e $U 338  ]
+"172
+[e :U 337 ]
+[; ;main.c: 172: else
+[; ;main.c: 173: {
+"173
+{
+[; ;main.c: 175: packetCorrupt = 1;
+"175
+[e = _packetCorrupt -> -> 1 `i `uc ]
+"176
+}
+[e :U 338 ]
+[e :U 336 ]
+[e :U 334 ]
+"177
+}
+[; ;main.c: 176: }
+[; ;main.c: 177: }
+[e $U 339  ]
+"178
+[e :U 332 ]
+[; ;main.c: 178: else
+[; ;main.c: 179: {
+"179
+{
+[; ;main.c: 181: packetCorrupt = 1;
+"181
+[e = _packetCorrupt -> -> 1 `i `uc ]
+"182
+}
+[e :U 339 ]
+[e :U 331 ]
+[e :U 323 ]
+"184
+}
+[; ;main.c: 182: }
+[; ;main.c: 184: }
+[e $U 340  ]
+"185
+[e :U 315 ]
+[; ;main.c: 185: else
+[; ;main.c: 186: {
+"186
+{
+[; ;main.c: 188: packetCorrupt = 1;
+"188
+[e = _packetCorrupt -> -> 1 `i `uc ]
+"190
+}
+[e :U 340 ]
+"191
+}
+[e :U 314 ]
+"192
+}
+[e :U 311 ]
+"99
+[e $U 312  ]
+[e :U 313 ]
+[; ;main.c: 190: }
+[; ;main.c: 191: }
+[; ;main.c: 192: }
+[; ;main.c: 193: }
+"193
+[e :UE 310 ]
 }

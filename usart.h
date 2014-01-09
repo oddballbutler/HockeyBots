@@ -2,7 +2,7 @@
 #define _SERIAL_H_
 
 #define BAUD 9600      
-#define FOSC 4000000L
+#define FOSC 15916000L
 #define NINE 0     /* Use 9bit communication? FALSE=8bit */
 
 #define DIVIDER ((int)(FOSC/(16UL * BAUD) -1))
@@ -23,19 +23,9 @@
 #if defined(_16F87) || defined(_16F88)
 	#define RX_PIN TRISB2
 	#define TX_PIN TRISB5
-#elif defined(_16F690)
-    #define RX_PIN TRISB5
-    #define TX_PIN TRISB7
-#else
-//	#define RX_PIN TRISC7
-//	#define TX_PIN TRISC6
-
+#elif defined(_16F1455)
 	#define RX_PIN TRISC5
 	#define TX_PIN TRISC4
-
-
-
-
 #endif
 
 
