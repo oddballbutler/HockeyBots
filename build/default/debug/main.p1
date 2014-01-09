@@ -1,5 +1,17 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"6185 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
+"6341 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
+[v _TMR2IF `Vb ~T0 @X0 0 e@137 ]
+"831
+[v _PR2 `Vuc ~T0 @X0 0 e@27 ]
+"1721
+[s S95 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S95 . . LATA4 LATA5 ]
+"1720
+[u S94 `S95 1 ]
+[n S94 . . ]
+"1727
+[v _LATAbits `VS94 ~T0 @X0 0 e@268 ]
+"6185
 [v _RCIF `Vb ~T0 @X0 0 e@141 ]
 "22 /Applications/microchip/xc8/v1.21/include/conio.h
 [v _getch `(uc ~T0 @X0 0 ef ]
@@ -24,6 +36,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCSTA `Vuc ~T0 @X0 0 e@413 ]
 "2727
 [v _TXSTA `Vuc ~T0 @X0 0 e@414 ]
+"926
+[s S57 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . . TRISA4 TRISA5 ]
+"925
+[u S56 `S57 1 ]
+[n S56 . . ]
+"932
+[v _TRISAbits `VS56 ~T0 @X0 0 e@140 ]
 "952
 [s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S59 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 ]
@@ -34,15 +54,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISCbits `VS58 ~T0 @X0 0 e@142 ]
 "2344
 [v _ANSELC `Vuc ~T0 @X0 0 e@398 ]
+"2316
+[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
 "1741
 [v _LATC `Vuc ~T0 @X0 0 e@270 ]
+"1715
+[v _LATA `Vuc ~T0 @X0 0 e@268 ]
+"856
+[s S54 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S54 . T2CKPS TMR2ON T2OUTPS ]
+"861
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"855
+[u S53 `S54 1 `S55 1 ]
+[n S53 . . . ]
+"871
+[v _T2CONbits `VS53 ~T0 @X0 0 e@28 ]
 "6183
 [v _RCIE `Vb ~T0 @X0 0 e@1165 ]
+"6339
+[v _TMR2IE `Vb ~T0 @X0 0 e@1161 ]
 "6073
 [v _PEIE `Vb ~T0 @X0 0 e@94 ]
 "5975
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
 [p mainexit ]
+"1747
+[s S97 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S97 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 ]
+"1746
+[u S96 `S97 1 ]
+[n S96 . . ]
+"1756
+[v _LATCbits `VS96 ~T0 @X0 0 e@270 ]
 [; ;pic16f1455.h: 44: extern volatile unsigned char INDF0 @ 0x000;
 "46 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
 [; ;pic16f1455.h: 46: asm("INDF0 equ 00h");
@@ -2450,7 +2495,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "14
 [p x BOREN=ON ]
 "15
-[p x CLKOUTEN=ON ]
+[p x CLKOUTEN=OFF ]
 "16
 [p x IESO=OFF ]
 "17
@@ -2510,436 +2555,913 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.h: 43: unsigned char getch(void);
 [; ;usart.h: 44: unsigned char getche(void);
 "36
-[v _packetBuffer `uc ~T0 @X0 -> 6 `i e ]
-[; ;main.c: 36: unsigned char packetBuffer[6];
+[v _leftPWM `uc ~T0 @X0 1 e ]
+[i _leftPWM
+-> -> 0 `i `uc
+]
+[; ;main.c: 36: unsigned char leftPWM = 0;
 "37
+[v _leftDir `uc ~T0 @X0 1 e ]
+[i _leftDir
+-> -> 1 `i `uc
+]
+[; ;main.c: 37: unsigned char leftDir = 1;
+"38
+[v _rightPWM `uc ~T0 @X0 1 e ]
+[i _rightPWM
+-> -> 0 `i `uc
+]
+[; ;main.c: 38: unsigned char rightPWM = 0;
+"39
+[v _rightDir `uc ~T0 @X0 1 e ]
+[i _rightDir
+-> -> 1 `i `uc
+]
+[; ;main.c: 39: unsigned char rightDir = 1;
+"41
+[v _packetBuffer `uc ~T0 @X0 -> 6 `i e ]
+[; ;main.c: 41: unsigned char packetBuffer[6];
+"42
 [v _packetReceived `uc ~T0 @X0 1 e ]
 [i _packetReceived
 -> -> 0 `i `uc
 ]
-[; ;main.c: 37: unsigned char packetReceived = 0;
-"38
+[; ;main.c: 42: unsigned char packetReceived = 0;
+"43
 [v _packetCorrupt `uc ~T0 @X0 1 e ]
 [i _packetCorrupt
 -> -> 0 `i `uc
 ]
-[; ;main.c: 38: unsigned char packetCorrupt = 0;
-"41
+[; ;main.c: 43: unsigned char packetCorrupt = 0;
+"46
 [v _rxchar `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
 [i _i
 -> -> 0 `i `uc
 ]
-[; ;main.c: 41: unsigned char rxchar, i = 0;
-"44
-[v F2490 `(v ~T0 @X0 1 tf ]
-[v _ISR `IF2490 ~T0 @X0 1 e ]
+[; ;main.c: 46: unsigned char rxchar, i = 0;
+"49
+[v F2494 `(v ~T0 @X0 1 tf ]
+[v _ISR `IF2494 ~T0 @X0 1 e ]
 {
-[; ;main.c: 43: void interrupt ISR()
-[; ;main.c: 44: {
+[; ;main.c: 48: void interrupt ISR()
+[; ;main.c: 49: {
 [e :U _ISR ]
 [f ]
-[; ;main.c: 45: if (RCIF)
-"45
-[e $ ! _RCIF 304  ]
-[; ;main.c: 46: {
-"46
-{
-[; ;main.c: 48: rxchar = getch();
-"48
-[e = _rxchar ( _getch ..  ]
-[; ;main.c: 49: if (packetCorrupt)
-"49
-[e $ ! != -> _packetCorrupt `i -> -> -> 0 `i `uc `i 305  ]
-[; ;main.c: 50: {
+[; ;main.c: 50: if (TMR2IF)
 "50
+[e $ ! _TMR2IF 304  ]
+[; ;main.c: 51: {
+"51
 {
-[; ;main.c: 52: if (rxchar == 0x02)
+[; ;main.c: 52: if (PR2 == 0xff)
 "52
-[e $ ! == -> _rxchar `i -> 2 `i 306  ]
+[e $ ! == -> _PR2 `i -> 255 `i 305  ]
 [; ;main.c: 53: {
 "53
 {
-[; ;main.c: 55: packetCorrupt = 0;
+[; ;main.c: 54: if (leftPWM > 0 && rightPWM > 0)
+"54
+[e $ ! && > -> _leftPWM `i -> 0 `i > -> _rightPWM `i -> 0 `i 306  ]
+[; ;main.c: 55: {
 "55
-[e = _packetCorrupt -> -> 0 `i `uc ]
-"56
-}
-[; ;main.c: 56: }
-[e $U 307  ]
-"57
-[e :U 306 ]
-[; ;main.c: 57: else
-[; ;main.c: 58: {
-"58
 {
-[; ;main.c: 59: return;
-"59
-[e $UE 303  ]
+[; ;main.c: 56: PR2 = leftPWM < rightPWM ? leftPWM : rightPWM;
+"56
+[e = _PR2 -> ? < -> _leftPWM `i -> _rightPWM `i : -> _leftPWM `i -> _rightPWM `i `uc ]
+[; ;main.c: 57: LATAbits.LATA4 = 1;
+"57
+[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 58: LATAbits.LATA5 = 1;
+"58
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
 "60
 }
-[e :U 307 ]
-"61
-}
-[e :U 305 ]
 [; ;main.c: 60: }
-[; ;main.c: 61: }
-[; ;main.c: 62: packetBuffer[i] = rxchar;
+[e $U 307  ]
+"61
+[e :U 306 ]
+[; ;main.c: 61: else if (leftPWM > 0)
+[e $ ! > -> _leftPWM `i -> 0 `i 308  ]
+[; ;main.c: 62: {
 "62
-[e = *U + &U _packetBuffer * -> _i `ux -> -> # *U &U _packetBuffer `ui `ux _rxchar ]
-[; ;main.c: 63: i++;
-"63
-[e ++ _i -> -> 1 `i `uc ]
-[; ;main.c: 64: if (i >= 6)
-"64
-[e $ ! >= -> _i `i -> 6 `i 308  ]
-[; ;main.c: 65: {
-"65
 {
-[; ;main.c: 67: packetReceived = 1;
-"67
-[e = _packetReceived -> -> 1 `i `uc ]
-[; ;main.c: 68: i = 0;
-"68
-[e = _i -> -> 0 `i `uc ]
-"69
+[; ;main.c: 63: PR2 = leftPWM;
+"63
+[e = _PR2 _leftPWM ]
+[; ;main.c: 64: LATAbits.LATA4 = 1;
+"64
+[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
+"65
 }
+[; ;main.c: 65: }
+[e $U 309  ]
+"66
 [e :U 308 ]
+[; ;main.c: 66: else if (rightPWM > 0)
+[e $ ! > -> _rightPWM `i -> 0 `i 310  ]
+[; ;main.c: 67: {
+"67
+{
+[; ;main.c: 68: PR2 = rightPWM;
+"68
+[e = _PR2 _rightPWM ]
+[; ;main.c: 69: LATAbits.LATA5 = 1;
+"69
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
 "70
 }
-[e :U 304 ]
-[; ;main.c: 69: }
+[e :U 310 ]
+"71
+[e :U 309 ]
+[e :U 307 ]
+}
 [; ;main.c: 70: }
 [; ;main.c: 71: }
-"71
+[e $U 311  ]
+"72
+[e :U 305 ]
+[; ;main.c: 72: else
+[; ;main.c: 73: {
+"73
+{
+[; ;main.c: 74: if (PR2 == leftPWM && leftPWM == rightPWM)
+"74
+[e $ ! && == -> _PR2 `i -> _leftPWM `i == -> _leftPWM `i -> _rightPWM `i 312  ]
+[; ;main.c: 75: {
+"75
+{
+[; ;main.c: 76: LATAbits.LATA4 = 0;
+"76
+[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 77: LATAbits.LATA5 = 0;
+"77
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 78: PR2 = 0xff;
+"78
+[e = _PR2 -> -> 255 `i `uc ]
+"79
+}
+[; ;main.c: 79: }
+[e $U 313  ]
+"80
+[e :U 312 ]
+[; ;main.c: 80: else
+[; ;main.c: 81: {
+"81
+{
+[; ;main.c: 82: if (PR2 == leftPWM)
+"82
+[e $ ! == -> _PR2 `i -> _leftPWM `i 314  ]
+[; ;main.c: 83: {
+"83
+{
+[; ;main.c: 84: LATAbits.LATA4 = 0;
+"84
+[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 85: if (leftPWM > rightPWM)
+"85
+[e $ ! > -> _leftPWM `i -> _rightPWM `i 315  ]
+[; ;main.c: 86: {
+"86
+{
+[; ;main.c: 87: PR2 = 0xff;
+"87
+[e = _PR2 -> -> 255 `i `uc ]
+"88
+}
+[; ;main.c: 88: }
+[e $U 316  ]
+"89
+[e :U 315 ]
+[; ;main.c: 89: else if (rightPWM != 0)
+[e $ ! != -> _rightPWM `i -> 0 `i 317  ]
+[; ;main.c: 90: {
+"90
+{
+[; ;main.c: 91: PR2 = rightPWM;
+"91
+[e = _PR2 _rightPWM ]
+"92
+}
+[e :U 317 ]
+"93
+[e :U 316 ]
+}
+[; ;main.c: 92: }
+[; ;main.c: 93: }
+[e $U 318  ]
+"94
+[e :U 314 ]
+[; ;main.c: 94: else if (PR2 == rightPWM)
+[e $ ! == -> _PR2 `i -> _rightPWM `i 319  ]
+[; ;main.c: 95: {
+"95
+{
+[; ;main.c: 96: LATAbits.LATA5 = 0;
+"96
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 97: if (rightPWM >= leftPWM)
+"97
+[e $ ! >= -> _rightPWM `i -> _leftPWM `i 320  ]
+[; ;main.c: 98: {
+"98
+{
+[; ;main.c: 99: PR2 = 0xff;
+"99
+[e = _PR2 -> -> 255 `i `uc ]
+"100
+}
+[; ;main.c: 100: }
+[e $U 321  ]
+"101
+[e :U 320 ]
+[; ;main.c: 101: else if (leftPWM != 0)
+[e $ ! != -> _leftPWM `i -> 0 `i 322  ]
+[; ;main.c: 102: {
+"102
+{
+[; ;main.c: 103: PR2 = leftPWM;
+"103
+[e = _PR2 _leftPWM ]
+"104
+}
+[e :U 322 ]
+"105
+[e :U 321 ]
+}
+[e :U 319 ]
+"106
+[e :U 318 ]
+}
+[e :U 313 ]
+"107
+}
+[e :U 311 ]
+"108
+}
+[e :U 304 ]
+[; ;main.c: 104: }
+[; ;main.c: 105: }
+[; ;main.c: 106: }
+[; ;main.c: 107: }
+[; ;main.c: 108: }
+[; ;main.c: 109: if (RCIF)
+"109
+[e $ ! _RCIF 323  ]
+[; ;main.c: 110: {
+"110
+{
+[; ;main.c: 111: rxchar = getch();
+"111
+[e = _rxchar ( _getch ..  ]
+[; ;main.c: 112: if (packetCorrupt)
+"112
+[e $ ! != -> _packetCorrupt `i -> -> -> 0 `i `uc `i 324  ]
+[; ;main.c: 113: {
+"113
+{
+[; ;main.c: 115: if (rxchar == 0x02)
+"115
+[e $ ! == -> _rxchar `i -> 2 `i 325  ]
+[; ;main.c: 116: {
+"116
+{
+[; ;main.c: 118: packetCorrupt = 0;
+"118
+[e = _packetCorrupt -> -> 0 `i `uc ]
+"119
+}
+[; ;main.c: 119: }
+[e $U 326  ]
+"120
+[e :U 325 ]
+[; ;main.c: 120: else
+[; ;main.c: 121: {
+"121
+{
+[; ;main.c: 122: return;
+"122
+[e $UE 303  ]
+"123
+}
+[e :U 326 ]
+"124
+}
+[e :U 324 ]
+[; ;main.c: 123: }
+[; ;main.c: 124: }
+[; ;main.c: 125: packetBuffer[i] = rxchar;
+"125
+[e = *U + &U _packetBuffer * -> _i `ux -> -> # *U &U _packetBuffer `ui `ux _rxchar ]
+[; ;main.c: 126: i++;
+"126
+[e ++ _i -> -> 1 `i `uc ]
+[; ;main.c: 127: if (i >= 6)
+"127
+[e $ ! >= -> _i `i -> 6 `i 327  ]
+[; ;main.c: 128: {
+"128
+{
+[; ;main.c: 129: packetReceived = 1;
+"129
+[e = _packetReceived -> -> 1 `i `uc ]
+[; ;main.c: 130: i = 0;
+"130
+[e = _i -> -> 0 `i `uc ]
+"131
+}
+[e :U 327 ]
+"132
+}
+[e :U 323 ]
+[; ;main.c: 131: }
+[; ;main.c: 132: }
+[; ;main.c: 133: }
+"133
 [e :UE 303 ]
 }
-"74
+"136
 [v _setup `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 73: void setup()
-[; ;main.c: 74: {
+[; ;main.c: 135: void setup()
+[; ;main.c: 136: {
 [e :U _setup ]
 [f ]
-[; ;main.c: 76: OSCCONbits.IRCF = 0b1111;
-"76
+[; ;main.c: 138: OSCCONbits.IRCF = 0b1111;
+"138
 [e = . . _OSCCONbits 0 1 -> -> 15 `i `uc ]
-[; ;main.c: 79: TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(16000000L/(16UL * 9600) -1)); RCSTA = (0|0x90); TXSTA = (0x4|0|0x20);
-"79
+[; ;main.c: 141: TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(16000000L/(16UL * 9600) -1)); RCSTA = (0|0x90); TXSTA = (0x4|0|0x20);
+"141
 [e = _TRISC5 -> -> 1 `i `b ]
 [e = _TRISC4 -> -> 1 `i `b ]
 [e = _SPBRG -> -> - / -> -> 16000000 `l `ul * -> 16 `ul -> -> -> 9600 `i `l `ul -> -> -> 1 `i `l `ul `i `us ]
 [e = _RCSTA -> | -> 0 `i -> 144 `i `uc ]
 [e = _TXSTA -> | | -> 4 `i -> 0 `i -> 32 `i `uc ]
-[; ;main.c: 82: TRISCbits.TRISC0 = 0;
-"82
+[; ;main.c: 144: TRISAbits.TRISA4 = 0;
+"144
+[e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 145: TRISAbits.TRISA5 = 0;
+"145
+[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 146: TRISCbits.TRISC0 = 0;
+"146
 [e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 83: TRISCbits.TRISC1 = 0;
-"83
+[; ;main.c: 147: TRISCbits.TRISC1 = 0;
+"147
 [e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 84: TRISCbits.TRISC2 = 0;
-"84
+[; ;main.c: 148: TRISCbits.TRISC2 = 0;
+"148
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 85: TRISCbits.TRISC3 = 0;
-"85
+[; ;main.c: 149: TRISCbits.TRISC3 = 0;
+"149
 [e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-[; ;main.c: 86: TRISCbits.TRISC4 = 0;
-"86
+[; ;main.c: 150: TRISCbits.TRISC4 = 0;
+"150
 [e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 87: TRISCbits.TRISC5 = 1;
-"87
+[; ;main.c: 151: TRISCbits.TRISC5 = 1;
+"151
 [e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 89: ANSELC = 0x00;
-"89
+[; ;main.c: 154: ANSELC = 0x00;
+"154
 [e = _ANSELC -> -> 0 `i `uc ]
-[; ;main.c: 91: LATC = 0x00;
-"91
+[; ;main.c: 155: ANSELA = 0x00;
+"155
+[e = _ANSELA -> -> 0 `i `uc ]
+[; ;main.c: 158: LATC = 0x00;
+"158
 [e = _LATC -> -> 0 `i `uc ]
-[; ;main.c: 94: RCIE = 1;
-"94
+[; ;main.c: 159: LATA = 0x00;
+"159
+[e = _LATA -> -> 0 `i `uc ]
+[; ;main.c: 162: T2CONbits.T2CKPS = 0b11;
+"162
+[e = . . _T2CONbits 0 0 -> -> 3 `i `uc ]
+[; ;main.c: 163: T2CONbits.TMR2ON = 1;
+"163
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 166: RCIE = 1;
+"166
 [e = _RCIE -> -> 1 `i `b ]
-[; ;main.c: 95: PEIE = 1;
-"95
+[; ;main.c: 167: TMR2IE = 1;
+"167
+[e = _TMR2IE -> -> 1 `i `b ]
+[; ;main.c: 168: PEIE = 1;
+"168
 [e = _PEIE -> -> 1 `i `b ]
-[; ;main.c: 96: GIE = 1;
-"96
+[; ;main.c: 169: GIE = 1;
+"169
 [e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 97: }
-"97
-[e :UE 309 ]
+[; ;main.c: 170: }
+"170
+[e :UE 328 ]
 }
-"100
+"173
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 99: void main()
-[; ;main.c: 100: {
+[; ;main.c: 172: void main()
+[; ;main.c: 173: {
 [e :U _main ]
 [f ]
-[; ;main.c: 101: setup();
-"101
-[e ( _setup ..  ]
-[; ;main.c: 103: while (1)
-"103
-[e :U 312 ]
-[; ;main.c: 104: {
-"104
-{
-[; ;main.c: 105: if (packetReceived)
-"105
-[e $ ! != -> _packetReceived `i -> -> -> 0 `i `uc `i 314  ]
-[; ;main.c: 106: {
-"106
-{
-[; ;main.c: 107: if (packetBuffer[0] == 0x02 && packetBuffer[5] == 0x03)
-"107
-[e $ ! && == -> *U + &U _packetBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i == -> *U + &U _packetBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 3 `i 315  ]
-[; ;main.c: 108: {
-"108
-{
-[; ;main.c: 110: if (packetBuffer[1] == 0)
-"110
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 316  ]
-[; ;main.c: 111: {
-"111
-{
-[; ;main.c: 113: if (packetBuffer[3] == 0)
-"113
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 317  ]
-[; ;main.c: 114: {
-"114
-{
-[; ;main.c: 116: LATC = 0b00000100;
-"116
-[e = _LATC -> -> 4 `i `uc ]
-"117
-}
-[; ;main.c: 117: }
-[e $U 318  ]
-"118
-[e :U 317 ]
-[; ;main.c: 118: else if (packetBuffer[3] == 1)
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 319  ]
-[; ;main.c: 119: {
-"119
-{
-[; ;main.c: 121: LATC = 0b00001001;
-"121
-[e = _LATC -> -> 9 `i `uc ]
-"122
-}
-[; ;main.c: 122: }
-[e $U 320  ]
-"123
-[e :U 319 ]
-[; ;main.c: 123: else if (packetBuffer[3] == 2)
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 321  ]
-[; ;main.c: 124: {
-"124
-{
-[; ;main.c: 126: LATC = 0b00001000;
-"126
-[e = _LATC -> -> 8 `i `uc ]
-"127
-}
-[; ;main.c: 127: }
-[e $U 322  ]
-"128
-[e :U 321 ]
-[; ;main.c: 128: else
-[; ;main.c: 129: {
-"129
-{
-[; ;main.c: 131: packetCorrupt = 1;
-"131
-[e = _packetCorrupt -> -> 1 `i `uc ]
-"132
-}
-[e :U 322 ]
-[e :U 320 ]
-[e :U 318 ]
-"133
-}
-[; ;main.c: 132: }
-[; ;main.c: 133: }
-[e $U 323  ]
-"134
-[e :U 316 ]
-[; ;main.c: 134: else if (packetBuffer[1] == 1)
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 324  ]
-[; ;main.c: 135: {
-"135
-{
-[; ;main.c: 137: if (packetBuffer[3] == 0)
-"137
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 325  ]
-[; ;main.c: 138: {
-"138
-{
-[; ;main.c: 140: LATC = 0b00000101;
-"140
-[e = _LATC -> -> 5 `i `uc ]
-"141
-}
-[; ;main.c: 141: }
-[e $U 326  ]
-"142
-[e :U 325 ]
-[; ;main.c: 142: else if (packetBuffer[3] == 1)
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 327  ]
-[; ;main.c: 143: {
-"143
-{
-[; ;main.c: 145: LATC = 0b00000000;
-"145
-[e = _LATC -> -> 0 `i `uc ]
-"146
-}
-[; ;main.c: 146: }
-[e $U 328  ]
-"147
-[e :U 327 ]
-[; ;main.c: 147: else if (packetBuffer[3] == 2)
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 329  ]
-[; ;main.c: 148: {
-"148
-{
-[; ;main.c: 150: LATC = 0b00001010;
-"150
-[e = _LATC -> -> 10 `i `uc ]
-"151
-}
-[; ;main.c: 151: }
-[e $U 330  ]
-"152
-[e :U 329 ]
-[; ;main.c: 152: else
-[; ;main.c: 153: {
-"153
-{
-[; ;main.c: 155: packetCorrupt = 1;
-"155
-[e = _packetCorrupt -> -> 1 `i `uc ]
-"156
-}
-[e :U 330 ]
-[e :U 328 ]
-[e :U 326 ]
-"157
-}
-[; ;main.c: 156: }
-[; ;main.c: 157: }
-[e $U 331  ]
-"158
-[e :U 324 ]
-[; ;main.c: 158: else if (packetBuffer[1] == 2)
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 332  ]
-[; ;main.c: 159: {
-"159
-{
-[; ;main.c: 161: if (packetBuffer[3] == 0)
-"161
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 333  ]
-[; ;main.c: 162: {
-"162
-{
-[; ;main.c: 164: LATC = 0b00000010;
-"164
-[e = _LATC -> -> 2 `i `uc ]
-"165
-}
-[; ;main.c: 165: }
-[e $U 334  ]
-"166
-[e :U 333 ]
-[; ;main.c: 166: else if (packetBuffer[3] == 1)
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 335  ]
-[; ;main.c: 167: {
-"167
-{
-[; ;main.c: 169: LATC = 0b00000110;
-"169
-[e = _LATC -> -> 6 `i `uc ]
-"170
-}
-[; ;main.c: 170: }
-[e $U 336  ]
-"171
-[e :U 335 ]
-[; ;main.c: 171: else if (packetBuffer[3] == 2)
-[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 337  ]
-[; ;main.c: 172: {
-"172
-{
-[; ;main.c: 174: LATC = 0b00000001;
 "174
-[e = _LATC -> -> 1 `i `uc ]
+[v _x `i ~T0 @X0 1 a ]
+[; ;main.c: 174: int x = 0;
+[e = _x -> 0 `i ]
 "175
-}
-[; ;main.c: 175: }
-[e $U 338  ]
+[v _y `i ~T0 @X0 1 a ]
+[; ;main.c: 175: int y = 0;
+[e = _y -> 0 `i ]
 "176
-[e :U 337 ]
-[; ;main.c: 176: else
-[; ;main.c: 177: {
+[v _leftPWMtemp `i ~T0 @X0 1 a ]
+[; ;main.c: 176: int leftPWMtemp = 0;
+[e = _leftPWMtemp -> 0 `i ]
 "177
-{
-[; ;main.c: 179: packetCorrupt = 1;
+[v _rightPWMtemp `i ~T0 @X0 1 a ]
+[; ;main.c: 177: int rightPWMtemp = 0;
+[e = _rightPWMtemp -> 0 `i ]
+"178
+[v _xAbs `i ~T0 @X0 1 a ]
+[; ;main.c: 178: int xAbs = 0;
+[e = _xAbs -> 0 `i ]
 "179
-[e = _packetCorrupt -> -> 1 `i `uc ]
-"180
-}
-[e :U 338 ]
-[e :U 336 ]
-[e :U 334 ]
+[v _yAbs `i ~T0 @X0 1 a ]
+[; ;main.c: 179: int yAbs = 0;
+[e = _yAbs -> 0 `i ]
+[; ;main.c: 181: setup();
 "181
-}
-[; ;main.c: 180: }
-[; ;main.c: 181: }
-[e $U 339  ]
+[e ( _setup ..  ]
+[; ;main.c: 182: while (1)
 "182
-[e :U 332 ]
-[; ;main.c: 182: else
+[e :U 331 ]
 [; ;main.c: 183: {
 "183
 {
-[; ;main.c: 185: packetCorrupt = 1;
+[; ;main.c: 184: if (packetReceived)
+"184
+[e $ ! != -> _packetReceived `i -> -> -> 0 `i `uc `i 333  ]
+[; ;main.c: 185: {
 "185
-[e = _packetCorrupt -> -> 1 `i `uc ]
-"186
-}
-[e :U 339 ]
-[e :U 331 ]
-[e :U 323 ]
-"188
-}
-[; ;main.c: 186: }
-[; ;main.c: 188: }
-[e $U 340  ]
-"189
-[e :U 315 ]
-[; ;main.c: 189: else
-[; ;main.c: 190: {
-"190
 {
-[; ;main.c: 192: packetCorrupt = 1;
-"192
-[e = _packetCorrupt -> -> 1 `i `uc ]
-"194
+[; ;main.c: 186: if (packetBuffer[0] == 0x02 && packetBuffer[5] == 0x03)
+"186
+[e $ ! && == -> *U + &U _packetBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i == -> *U + &U _packetBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 3 `i 334  ]
+[; ;main.c: 187: {
+"187
+{
+[; ;main.c: 188: if (packetBuffer[1] == 0)
+"188
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 335  ]
+[; ;main.c: 189: {
+"189
+{
+[; ;main.c: 190: x = 0 - 72 - (128 - packetBuffer[2]);
+"190
+[e = _x - - -> 0 `i -> 72 `i - -> 128 `i -> *U + &U _packetBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i ]
+"191
 }
-[e :U 340 ]
+[; ;main.c: 191: }
+[e $U 336  ]
+"192
+[e :U 335 ]
+[; ;main.c: 192: else if (packetBuffer[1] == 1)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 337  ]
+[; ;main.c: 193: {
+"193
+{
+[; ;main.c: 194: x = 0 - 72 + (packetBuffer[2]);
+"194
+[e = _x + - -> 0 `i -> 72 `i -> *U + &U _packetBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i ]
 "195
 }
-[e :U 314 ]
-"196
-}
-[e :U 311 ]
-"103
-[e $U 312  ]
-[e :U 313 ]
-[; ;main.c: 194: }
 [; ;main.c: 195: }
-[; ;main.c: 196: }
-[; ;main.c: 197: }
+[e $U 338  ]
+"196
+[e :U 337 ]
+[; ;main.c: 196: else if (packetBuffer[1] == 2)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 339  ]
+[; ;main.c: 197: {
 "197
-[e :UE 310 ]
+{
+[; ;main.c: 198: x = 56 + packetBuffer[2];
+"198
+[e = _x + -> 56 `i -> *U + &U _packetBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i ]
+"199
+}
+[; ;main.c: 199: }
+[e $U 340  ]
+"200
+[e :U 339 ]
+[; ;main.c: 200: else
+[; ;main.c: 201: {
+"201
+{
+[; ;main.c: 202: packetCorrupt = 1;
+"202
+[e = _packetCorrupt -> -> 1 `i `uc ]
+"203
+}
+[e :U 340 ]
+[e :U 338 ]
+[e :U 336 ]
+[; ;main.c: 203: }
+[; ;main.c: 205: if (packetBuffer[3] == 0)
+"205
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 0 `i 341  ]
+[; ;main.c: 206: {
+"206
+{
+[; ;main.c: 207: y = 0 - 72 - (128 - packetBuffer[4]);
+"207
+[e = _y - - -> 0 `i -> 72 `i - -> 128 `i -> *U + &U _packetBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i ]
+"208
+}
+[; ;main.c: 208: }
+[e $U 342  ]
+"209
+[e :U 341 ]
+[; ;main.c: 209: else if (packetBuffer[3] == 1)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 1 `i 343  ]
+[; ;main.c: 210: {
+"210
+{
+[; ;main.c: 211: y = 0 - 72 + (packetBuffer[4]);
+"211
+[e = _y + - -> 0 `i -> 72 `i -> *U + &U _packetBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i ]
+"212
+}
+[; ;main.c: 212: }
+[e $U 344  ]
+"213
+[e :U 343 ]
+[; ;main.c: 213: else if (packetBuffer[3] == 2)
+[e $ ! == -> *U + &U _packetBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i -> 2 `i 345  ]
+[; ;main.c: 214: {
+"214
+{
+[; ;main.c: 215: y = 56 + packetBuffer[4];
+"215
+[e = _y + -> 56 `i -> *U + &U _packetBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _packetBuffer `ui `ux `i ]
+"216
+}
+[; ;main.c: 216: }
+[e $U 346  ]
+"217
+[e :U 345 ]
+[; ;main.c: 217: else
+[; ;main.c: 218: {
+"218
+{
+[; ;main.c: 219: packetCorrupt = 1;
+"219
+[e = _packetCorrupt -> -> 1 `i `uc ]
+"220
+}
+[e :U 346 ]
+[e :U 344 ]
+[e :U 342 ]
+[; ;main.c: 220: }
+[; ;main.c: 222: xAbs = x > 0 ? x : -x;
+"222
+[e = _xAbs ? > _x -> 0 `i : _x -U _x ]
+[; ;main.c: 223: yAbs = y > 0 ? y : -y;
+"223
+[e = _yAbs ? > _y -> 0 `i : _y -U _y ]
+[; ;main.c: 225: if (x < (-y))
+"225
+[e $ ! < _x -U _y 347  ]
+[; ;main.c: 226: {
+"226
+{
+[; ;main.c: 227: leftDir = 0;
+"227
+[e = _leftDir -> -> 0 `i `uc ]
+[; ;main.c: 228: if (x < 0)
+"228
+[e $ ! < _x -> 0 `i 348  ]
+[; ;main.c: 229: {
+"229
+{
+[; ;main.c: 230: leftPWMtemp = xAbs - y;
+"230
+[e = _leftPWMtemp - _xAbs _y ]
+"231
+}
+[; ;main.c: 231: }
+[e $U 349  ]
+"232
+[e :U 348 ]
+[; ;main.c: 232: else
+[; ;main.c: 233: {
+"233
+{
+[; ;main.c: 234: leftPWMtemp = yAbs - x;
+"234
+[e = _leftPWMtemp - _yAbs _x ]
+"235
+}
+[e :U 349 ]
+"236
+}
+[; ;main.c: 235: }
+[; ;main.c: 236: }
+[e $U 350  ]
+"237
+[e :U 347 ]
+[; ;main.c: 237: else
+[; ;main.c: 238: {
+"238
+{
+[; ;main.c: 239: leftDir = 1;
+"239
+[e = _leftDir -> -> 1 `i `uc ]
+[; ;main.c: 240: if (x < 0)
+"240
+[e $ ! < _x -> 0 `i 351  ]
+[; ;main.c: 241: {
+"241
+{
+[; ;main.c: 242: leftPWMtemp = yAbs - xAbs;
+"242
+[e = _leftPWMtemp - _yAbs _xAbs ]
+"243
+}
+[; ;main.c: 243: }
+[e $U 352  ]
+"244
+[e :U 351 ]
+[; ;main.c: 244: else
+[; ;main.c: 245: {
+"245
+{
+[; ;main.c: 246: leftPWMtemp = x + y;
+"246
+[e = _leftPWMtemp + _x _y ]
+"247
+}
+[e :U 352 ]
+"248
+}
+[e :U 350 ]
+[; ;main.c: 247: }
+[; ;main.c: 248: }
+[; ;main.c: 250: if (y > x)
+"250
+[e $ ! > _y _x 353  ]
+[; ;main.c: 251: {
+"251
+{
+[; ;main.c: 252: rightDir = 1;
+"252
+[e = _rightDir -> -> 1 `i `uc ]
+[; ;main.c: 253: if (y > 0)
+"253
+[e $ ! > _y -> 0 `i 354  ]
+[; ;main.c: 254: {
+"254
+{
+[; ;main.c: 255: rightPWMtemp = y - x;
+"255
+[e = _rightPWMtemp - _y _x ]
+"256
+}
+[; ;main.c: 256: }
+[e $U 355  ]
+"257
+[e :U 354 ]
+[; ;main.c: 257: else
+[; ;main.c: 258: {
+"258
+{
+[; ;main.c: 259: rightPWMtemp = xAbs - yAbs;
+"259
+[e = _rightPWMtemp - _xAbs _yAbs ]
+"260
+}
+[e :U 355 ]
+"261
+}
+[; ;main.c: 260: }
+[; ;main.c: 261: }
+[e $U 356  ]
+"262
+[e :U 353 ]
+[; ;main.c: 262: else
+[; ;main.c: 263: {
+"263
+{
+[; ;main.c: 264: rightDir = 0;
+"264
+[e = _rightDir -> -> 0 `i `uc ]
+[; ;main.c: 265: if (y > 0)
+"265
+[e $ ! > _y -> 0 `i 357  ]
+[; ;main.c: 266: {
+"266
+{
+[; ;main.c: 267: rightPWMtemp = xAbs - y;
+"267
+[e = _rightPWMtemp - _xAbs _y ]
+"268
+}
+[; ;main.c: 268: }
+[e $U 358  ]
+"269
+[e :U 357 ]
+[; ;main.c: 269: else
+[; ;main.c: 270: {
+"270
+{
+[; ;main.c: 271: rightPWMtemp = yAbs + x;
+"271
+[e = _rightPWMtemp + _yAbs _x ]
+"272
+}
+[e :U 358 ]
+"273
+}
+[e :U 356 ]
+[; ;main.c: 272: }
+[; ;main.c: 273: }
+[; ;main.c: 274: if (leftPWMtemp > 100)
+"274
+[e $ ! > _leftPWMtemp -> 100 `i 359  ]
+[; ;main.c: 275: {
+"275
+{
+[; ;main.c: 276: leftPWMtemp = 100;
+"276
+[e = _leftPWMtemp -> 100 `i ]
+"277
+}
+[e :U 359 ]
+[; ;main.c: 277: }
+[; ;main.c: 278: if (rightPWMtemp > 100)
+"278
+[e $ ! > _rightPWMtemp -> 100 `i 360  ]
+[; ;main.c: 279: {
+"279
+{
+[; ;main.c: 280: rightPWMtemp = 100;
+"280
+[e = _rightPWMtemp -> 100 `i ]
+"281
+}
+[e :U 360 ]
+[; ;main.c: 281: }
+[; ;main.c: 283: GIE = 0;
+"283
+[e = _GIE -> -> 0 `i `b ]
+[; ;main.c: 284: if (leftPWMtemp == 0)
+"284
+[e $ ! == _leftPWMtemp -> 0 `i 361  ]
+[; ;main.c: 285: {
+"285
+{
+[; ;main.c: 286: leftPWM = 0;
+"286
+[e = _leftPWM -> -> 0 `i `uc ]
+"287
+}
+[; ;main.c: 287: }
+[e $U 362  ]
+"288
+[e :U 361 ]
+[; ;main.c: 288: else
+[; ;main.c: 289: {
+"289
+{
+[; ;main.c: 290: leftPWM = (leftPWMtemp * 2) + 50;
+"290
+[e = _leftPWM -> + * _leftPWMtemp -> 2 `i -> 50 `i `uc ]
+"291
+}
+[e :U 362 ]
+[; ;main.c: 291: }
+[; ;main.c: 293: if (rightPWMtemp == 0)
+"293
+[e $ ! == _rightPWMtemp -> 0 `i 363  ]
+[; ;main.c: 294: {
+"294
+{
+[; ;main.c: 295: rightPWM = 0;
+"295
+[e = _rightPWM -> -> 0 `i `uc ]
+"296
+}
+[; ;main.c: 296: }
+[e $U 364  ]
+"297
+[e :U 363 ]
+[; ;main.c: 297: else
+[; ;main.c: 298: {
+"298
+{
+[; ;main.c: 299: rightPWM = (rightPWMtemp * 2) + 50;
+"299
+[e = _rightPWM -> + * _rightPWMtemp -> 2 `i -> 50 `i `uc ]
+"300
+}
+[e :U 364 ]
+[; ;main.c: 300: }
+[; ;main.c: 301: if (leftDir)
+"301
+[e $ ! != -> _leftDir `i -> -> -> 0 `i `uc `i 365  ]
+[; ;main.c: 302: {
+"302
+{
+[; ;main.c: 304: LATCbits.LATC0 = 0;
+"304
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 305: LATCbits.LATC1 = 1;
+"305
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+"306
+}
+[; ;main.c: 306: }
+[e $U 366  ]
+"307
+[e :U 365 ]
+[; ;main.c: 307: else
+[; ;main.c: 308: {
+"308
+{
+[; ;main.c: 309: LATCbits.LATC0 = 1;
+"309
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 310: LATCbits.LATC1 = 0;
+"310
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"311
+}
+[e :U 366 ]
+[; ;main.c: 311: }
+[; ;main.c: 312: if (rightDir)
+"312
+[e $ ! != -> _rightDir `i -> -> -> 0 `i `uc `i 367  ]
+[; ;main.c: 313: {
+"313
+{
+[; ;main.c: 315: LATCbits.LATC2 = 0;
+"315
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 316: LATCbits.LATC3 = 1;
+"316
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+"317
+}
+[; ;main.c: 317: }
+[e $U 368  ]
+"318
+[e :U 367 ]
+[; ;main.c: 318: else
+[; ;main.c: 319: {
+"319
+{
+[; ;main.c: 320: LATCbits.LATC2 = 1;
+"320
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 321: LATCbits.LATC3 = 0;
+"321
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+"322
+}
+[e :U 368 ]
+[; ;main.c: 322: }
+[; ;main.c: 324: GIE = 1;
+"324
+[e = _GIE -> -> 1 `i `b ]
+"411
+}
+[; ;main.c: 411: }
+[e $U 369  ]
+"412
+[e :U 334 ]
+[; ;main.c: 412: else
+[; ;main.c: 413: {
+"413
+{
+[; ;main.c: 415: packetCorrupt = 1;
+"415
+[e = _packetCorrupt -> -> 1 `i `uc ]
+"416
+}
+[e :U 369 ]
+[; ;main.c: 416: }
+[; ;main.c: 417: packetReceived = 0;
+"417
+[e = _packetReceived -> -> 0 `i `uc ]
+"418
+}
+[e :U 333 ]
+"419
+}
+[e :U 330 ]
+"182
+[e $U 331  ]
+[e :U 332 ]
+[; ;main.c: 418: }
+[; ;main.c: 419: }
+[; ;main.c: 420: }
+"420
+[e :UE 329 ]
 }

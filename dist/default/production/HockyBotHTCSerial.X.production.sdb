@@ -74,11 +74,11 @@
 [v ___tmul __tmul `(um  1 e 3 0 ]
 "3 /Applications/microchip/xc8/v1.21/sources/pic/wmul.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
-"44 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c
+"49 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c
 [v _ISR ISR `II(v  1 e 0 0 ]
-"78
+"137
 [v _setup setup `(v  1 e 0 0 ]
-"104
+"174
 [v _main main `(v  1 e 0 0 ]
 "7 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c
 [v _putch putch `(v  1 e 0 0 ]
@@ -86,33 +86,65 @@
 [v _getch getch `(uc  1 e 1 0 ]
 "24
 [v _getche getche `(uc  1 e 1 0 ]
-[s S57 . 1 `uc 1 TRISC0 1 0 :1:0 
+"831 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
+[v _PR2 PR2 `VEuc  1 e 1 @27 ]
+[s S102 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+"871
+[s S106 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S114 . 1 `S102 1 . 1 0 `S106 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES114  1 e 1 @28 ]
+[s S21 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+]
+"932
+[u S25 . 1 `S21 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES25  1 e 1 @140 ]
+[s S81 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
 `uc 1 TRISC4 1 0 :1:4 
 `uc 1 TRISC5 1 0 :1:5 
 ]
-"961 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
-[u S64 . 1 `S57 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES64  1 e 1 @142 ]
-[s S24 . 1 `uc 1 SCS 1 0 :2:0 
+"961
+[u S88 . 1 `S81 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES88  1 e 1 @142 ]
+[s S37 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 IRCF 1 0 :4:2 
 `uc 1 SPLLMULT 1 0 :1:6 
 `uc 1 SPLLEN 1 0 :1:7 
 ]
 "1382
-[s S29 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S42 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 IRCF0 1 0 :1:2 
 `uc 1 IRCF1 1 0 :1:3 
 `uc 1 IRCF2 1 0 :1:4 
 `uc 1 IRCF3 1 0 :1:5 
 ]
-[u S36 . 1 `S24 1 . 1 0 `S29 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES36  1 e 1 @153 ]
+[u S49 . 1 `S37 1 . 1 0 `S42 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES49  1 e 1 @153 ]
+"1715
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"1727
+[v _LATAbits LATAbits `VES25  1 e 1 @268 ]
 "1741
 [v _LATC LATC `VEuc  1 e 1 @270 ]
+"1756
+[v _LATCbits LATCbits `VES88  1 e 1 @270 ]
+"2316
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2344
 [v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
 "2584
@@ -133,6 +165,10 @@
 [v _RCIE RCIE `VEb  1 e 0 @1165 ]
 "6185
 [v _RCIF RCIF `VEb  1 e 0 @141 ]
+"6339
+[v _TMR2IE TMR2IE `VEb  1 e 0 @1161 ]
+"6341
+[v _TMR2IF TMR2IF `VEb  1 e 0 @137 ]
 "6363
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1140 ]
 "6365
@@ -140,35 +176,48 @@
 "6395
 [v _TXIF TXIF `VEb  1 e 0 @140 ]
 "36 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c
-[v _packetBuffer packetBuffer `[6]uc  1 e 6 0 ]
+[v _leftPWM leftPWM `uc  1 e 1 0 ]
 "37
-[v _packetReceived packetReceived `uc  1 e 1 0 ]
+[v _leftDir leftDir `uc  1 e 1 0 ]
 "38
-[v _packetCorrupt packetCorrupt `uc  1 e 1 0 ]
+[v _rightPWM rightPWM `uc  1 e 1 0 ]
+"39
+[v _rightDir rightDir `uc  1 e 1 0 ]
 "41
+[v _packetBuffer packetBuffer `[6]uc  1 e 6 0 ]
+"42
+[v _packetReceived packetReceived `uc  1 e 1 0 ]
+"43
+[v _packetCorrupt packetCorrupt `uc  1 e 1 0 ]
+"46
 [v _rxchar rxchar `uc  1 e 1 0 ]
 [v _i i `uc  1 e 1 0 ]
-"104
+"174
 [v _main main `(v  1 e 0 0 ]
 {
-"207
+"176
+[v main@y y `i  1 a 2 14 ]
+"175
+[v main@x x `i  1 a 2 12 ]
+"180
+[v main@yAbs yAbs `i  1 a 2 10 ]
+"179
+[v main@xAbs xAbs `i  1 a 2 8 ]
+"178
+[v main@rightPWMtemp rightPWMtemp `i  1 a 2 6 ]
+"177
+[v main@leftPWMtemp leftPWMtemp `i  1 a 2 4 ]
+"421
 } 0
-"7 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c
-[v _putch putch `(v  1 e 0 0 ]
-{
-[v putch@byte byte `uc  1 a 1 2 ]
-[v putch@byte byte `uc  1 a 1 2 ]
-"12
-} 0
-"78 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c
+"137
 [v _setup setup `(v  1 e 0 0 ]
 {
-"101
+"171
 } 0
-"44
+"49
 [v _ISR ISR `II(v  1 e 0 0 ]
 {
-"75
+"134
 } 0
 "15 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c
 [v _getch getch `(uc  1 e 1 0 ]

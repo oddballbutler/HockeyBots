@@ -1,7 +1,6 @@
-_ISR: CODE, 4 0 43
-_putch: CODE, 195 0 8
-_main: CODE, 62 0 103
-__initialization: CODE, 49 0 10
-_getch: CODE, 203 0 6
-_setup: CODE, 165 0 30
-Total: 200
+_ISR: CODE, 4 0 140
+_main: CODE, 168 0 422
+__initialization: CODE, 146 0 19
+_getch: CODE, 629 0 6
+_setup: CODE, 590 0 39
+Total: 626

@@ -11,26 +11,29 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtSzAX7W.obj
-end_init CODE 0 2F 2F 2 2
+$/tmp/cgtYJlatY.obj
+end_init CODE 0 90 90 2 2
 reset_vec CODE 0 0 0 2 2
 config CONFIG 0 8007 8007 2 2
 $dist/default/production/HockyBotHTCSerial.X.production.obj
-cinit CODE 0 31 31 D 2
-intentry CODE 0 4 4 2B 2
-text4 CODE 0 CB CB 6 2
-text2 CODE 0 A5 A5 1E 2
-text1 CODE 0 C3 C3 8 2
-maintext CODE 0 3E 3E 67 2
-cstackCOMMON COMMON 1 7A 7A 3 1
-bssCOMMON COMMON 1 70 70 A 1
+cinit CODE 0 92 92 16 2
+intentry CODE 0 4 4 8C 2
+text3 CODE 0 275 275 6 2
+text1 CODE 0 24E 24E 27 2
+maintext CODE 0 A8 A8 1A6 2
+cstackBANK0 BANK0 1 20 20 10 1
+cstackCOMMON COMMON 1 75 75 5 1
+dataBANK0 BANK0 1 37 37 2 1
+bssBANK0 BANK0 1 30 30 7 1
+bssCOMMON COMMON 1 70 70 5 1
+idataBANK0 CODE 0 27B 27B 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-BANK0 00020-0006F 1
+BANK0 00039-0006F 1
 BANK1 000A0-000EF 1
 BANK10 00520-0056F 1
 BANK11 005A0-005EF 1
@@ -45,14 +48,14 @@ BANK8 00420-0046F 1
 BANK9 004A0-004EF 1
 BIGRAM 02000-023EF 1
 CODE 00002-00003 2
-CODE 000D1-01FFF 2
-COMMON 0007D-0007D 1
+CODE 0027D-01FFF 2
+COMMON 0007A-0007D 1
 CONST 00002-00003 2
-CONST 000D1-01FFF 2
+CONST 0027D-01FFF 2
 ENTRY 00002-00003 2
-ENTRY 000D1-01FFF 2
+ENTRY 0027D-01FFF 2
 IDLOC 08000-08003 2
-RAM 00020-0006F 1
+RAM 00039-0006F 1
 RAM 000A0-000EF 1
 RAM 00120-0016F 1
 RAM 001A0-001EF 1
@@ -98,9 +101,9 @@ SFR7 00380-0039F 1
 SFR8 00400-0041F 1
 SFR9 00480-0049F 1
 STRCODE 00002-00003 2
-STRCODE 000D1-01FFF 2
+STRCODE 0027D-01FFF 2
 STRING 00002-00003 2
-STRING 000D1-01FFF 2
+STRING 0027D-01FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -115,90 +118,165 @@ STRING 000D1-01FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/HockyBotHTCSerial.X.production.obj
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":44 4 intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":46 8 intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":49 A intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":51 10 intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":54 13 intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":57 17 intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":64 18 intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":65 20 intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":66 24 intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":69 28 intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":70 2A intentry CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":75 2B intentry CODE
-"/tmp/cgtN3f0dZ":706 31 cinit CODE
-"/tmp/cgtN3f0dZ":707 32 cinit CODE
-"/tmp/cgtN3f0dZ":708 33 cinit CODE
-"/tmp/cgtN3f0dZ":709 34 cinit CODE
-"/tmp/cgtN3f0dZ":710 35 cinit CODE
-"/tmp/cgtN3f0dZ":711 36 cinit CODE
-"/tmp/cgtN3f0dZ":712 37 cinit CODE
-"/tmp/cgtN3f0dZ":713 38 cinit CODE
-"/tmp/cgtN3f0dZ":714 39 cinit CODE
-"/tmp/cgtN3f0dZ":715 3A cinit CODE
-"/tmp/cgtN3f0dZ":722 3B cinit CODE
-"/tmp/cgtN3f0dZ":723 3C cinit CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":105 3E maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":109 41 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":111 44 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":114 4C maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":117 4F maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":120 52 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":122 54 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":125 58 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":127 5A maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":130 5E maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":135 60 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":136 62 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":139 64 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":142 68 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":145 6B maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":147 6D maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":150 71 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":151 73 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":152 74 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":155 78 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":160 7A maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":161 7C maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":164 7E maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":167 82 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":170 85 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":172 87 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":175 8B maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":177 8D maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":180 91 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":181 94 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":185 95 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":186 97 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":192 99 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":193 9B maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":200 9D maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":201 9F maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":204 A3 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":107 A4 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":80 A5 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":207 A5 maintext CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":83 A8 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":86 B3 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":87 B5 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":88 B6 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":89 B7 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":90 B8 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":91 B9 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":93 BA text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":95 BC text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":98 BE text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":99 C0 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":100 C1 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":101 C2 text2 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":7 C3 text1 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":9 C4 text1 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":11 C7 text1 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":12 CA text1 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":17 CB text4 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":19 CE text4 CODE
-"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":20 D1 text4 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":49 4 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":50 8 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":52 A intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":54 E intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":56 14 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":57 23 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":61 26 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":63 29 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":64 2C intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":65 2E intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":66 2F intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":68 32 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":69 35 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":71 37 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":74 38 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":76 41 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":77 43 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":82 45 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":84 49 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":85 4B intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":87 4E intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":89 4F intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":91 52 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":94 54 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":96 58 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":97 5A intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":99 5E intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":101 60 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":103 63 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":108 66 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":110 68 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":112 6A intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":113 70 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":116 73 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":119 77 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":126 78 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":127 80 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":128 84 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":130 88 intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":131 8B intentry CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":134 8C intentry CODE
+"/tmp/cgtr4mfMs":760 92 cinit CODE
+"/tmp/cgtr4mfMs":761 93 cinit CODE
+"/tmp/cgtr4mfMs":762 94 cinit CODE
+"/tmp/cgtr4mfMs":763 95 cinit CODE
+"/tmp/cgtr4mfMs":764 96 cinit CODE
+"/tmp/cgtr4mfMs":768 97 cinit CODE
+"/tmp/cgtr4mfMs":769 98 cinit CODE
+"/tmp/cgtr4mfMs":770 99 cinit CODE
+"/tmp/cgtr4mfMs":771 9A cinit CODE
+"/tmp/cgtr4mfMs":772 9B cinit CODE
+"/tmp/cgtr4mfMs":773 9C cinit CODE
+"/tmp/cgtr4mfMs":774 9D cinit CODE
+"/tmp/cgtr4mfMs":779 9E cinit CODE
+"/tmp/cgtr4mfMs":780 A1 cinit CODE
+"/tmp/cgtr4mfMs":781 A2 cinit CODE
+"/tmp/cgtr4mfMs":782 A4 cinit CODE
+"/tmp/cgtr4mfMs":789 A5 cinit CODE
+"/tmp/cgtr4mfMs":790 A6 cinit CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":175 A8 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":176 AB maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":177 AD maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":178 AF maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":179 B1 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":180 B3 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":182 B5 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":185 B8 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":187 BC maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":189 C4 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":191 C7 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":193 E0 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":195 E4 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":197 EB maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":199 EF maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":200 F6 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":203 F7 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":206 F9 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":208 FC maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":210 115 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":212 119 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":214 120 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":216 124 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":217 12B maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":220 12C maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":223 12E maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":224 14D maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":226 16C maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":228 17F maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":229 181 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":231 183 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":235 18F maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":240 193 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":241 196 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":243 198 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":247 1A5 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":251 1AB maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":253 1B7 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":254 1BA maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":256 1C5 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":260 1D2 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":265 1D7 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":266 1D9 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":268 1E4 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":272 1F2 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":275 1F9 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":277 204 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":279 209 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":281 215 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":284 21A maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":285 21B maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":287 220 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":288 221 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":291 222 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":294 227 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":296 22B maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":297 22C maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":300 22D maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":302 232 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":305 235 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":306 237 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":307 238 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":310 239 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":311 23B maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":313 23C maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":316 240 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":317 242 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":318 243 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":321 244 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":322 246 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":325 247 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":412 248 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":416 249 maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":418 24B maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":183 24D maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":139 24E text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":421 24E maintext CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":142 251 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":145 25C text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":146 25E text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":147 25F text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":148 260 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":149 261 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":150 262 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":151 263 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":152 264 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":155 265 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":156 267 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":159 268 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":160 26A text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":163 26B text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":164 26E text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":167 26F text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":168 271 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":169 272 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":170 273 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c":171 274 text1 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":17 275 text3 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":19 278 text3 CODE
+"/Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c":20 27B text3 CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -211,53 +289,65 @@ $dist/default/production/HockyBotHTCSerial.X.production.obj
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-_i 76 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
+_i 70 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+_PR2 1B 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __S0 8009 0 ABS 0 - -
-__S1 7D 0 ABS 0 - -
+__S1 7A 0 ABS 0 - -
 _GIE 5F 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _ISR 8 0 CODE 0 intentry dist/default/production/HockyBotHTCSerial.X.production.obj
-__Hintentry 5E 0 CODE 0 intentry -
+__Hintentry 120 0 CODE 0 intentry -
 __Lintentry 8 0 CODE 0 intentry -
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __pintentry 8 0 CODE 0 intentry dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _RCIE 48D 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+_LATA 10C 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _PEIE 5E 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _RCIF 8D 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _LATC 10E 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _TXIF 8C 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-_main 7C 0 CODE 0 maintext dist/default/production/HockyBotHTCSerial.X.production.obj
+_main 150 0 CODE 0 maintext dist/default/production/HockyBotHTCSerial.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-start 5E 0 CODE 0 init /tmp/cgtSzAX7W.obj
+start 120 0 CODE 0 init /tmp/cgtYJlatY.obj
 _RCREG 199 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _RCSTA 19D 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _TXREG 19A 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-reset_vec 0 0 CODE 0 reset_vec /tmp/cgtSzAX7W.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/cgtYJlatY.obj
 _SPBRG 19B 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _TXSTA 19E 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+main@leftPWMtemp 24 0 BANK0 1 cstackBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+main@xAbs 28 0 BANK0 1 cstackBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
+main@yAbs 2A 0 BANK0 1 cstackBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hconfig 10012 0 CONFIG 0 config -
 __Lconfig 1000E 0 CONFIG 0 config -
+main@rightPWMtemp 26 0 BANK0 1 cstackBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
+_rightDir 38 0 BANK0 1 dataBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hbigram 0 0 ABS 0 bigram -
 __Lbigram 0 0 ABS 0 bigram -
+main@x 2C 0 BANK0 1 cstackBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
+main@y 2E 0 BANK0 1 cstackBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_getch 196 0 CODE 0 text4 dist/default/production/HockyBotHTCSerial.X.production.obj
-_putch 186 0 CODE 0 text1 dist/default/production/HockyBotHTCSerial.X.production.obj
+_getch 4EA 0 CODE 0 text3 dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-_setup 14A 0 CODE 0 text2 dist/default/production/HockyBotHTCSerial.X.production.obj
-__end_of_ISR 5E 0 CODE 0 intentry dist/default/production/HockyBotHTCSerial.X.production.obj
+_setup 49C 0 CODE 0 text1 dist/default/production/HockyBotHTCSerial.X.production.obj
+__end_of_ISR 120 0 CODE 0 intentry dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
 __Lfunctab 0 0 CODE 0 functab -
 _TRISC4 474 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _TRISC5 475 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-__end_of_putch 196 0 CODE 0 text1 dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hcommon 0 0 ABS 0 common -
 __Lcommon 0 0 ABS 0 common -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-__CFG_CLKOUTEN$ON 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+_LATAbits 10C 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+_LATCbits 10E 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+_TMR2IE 489 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+__CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+_TMR2IF 89 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+_ANSELA 18C 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _ANSELC 18E 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __Habs1 0 0 ABS 0 abs1 -
 __Labs1 0 0 ABS 0 abs1 -
@@ -285,14 +375,20 @@ __CFG_CPUDIV$CLKDIV2 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.pro
 __Hcode 0 0 ABS 0 code -
 __Lcode 0 0 ABS 0 code -
 __CFG_PLLMULT$3x 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-putch@byte 7C 0 COMMON 1 cstackCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
-_rxchar 79 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
-__Hinit 5E 0 CODE 0 init -
-__Linit 5E 0 CODE 0 init -
-__end_of_main 14A 0 CODE 0 maintext dist/default/production/HockyBotHTCSerial.X.production.obj
+_ISR$162 78 0 COMMON 1 cstackCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
+_rxchar 74 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
+__Hinit 120 0 CODE 0 init -
+__Linit 120 0 CODE 0 init -
+__end_of_main 49C 0 CODE 0 maintext dist/default/production/HockyBotHTCSerial.X.production.obj
 __Htext 0 0 ABS 0 text -
 __Ltext 0 0 ABS 0 text -
-end_of_initialization 76 0 CODE 0 cinit dist/default/production/HockyBotHTCSerial.X.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__pdataBANK0 37 0 BANK0 1 dataBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
+end_of_initialization 14A 0 CODE 0 cinit dist/default/production/HockyBotHTCSerial.X.production.obj
 __size_of_ISR 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hsfr10 0 0 ABS 0 sfr10 -
 __Lsfr10 0 0 ABS 0 sfr10 -
@@ -326,12 +422,11 @@ __Hsfr16 0 0 ABS 0 sfr16 -
 __Lsfr16 0 0 ABS 0 sfr16 -
 __Hsfr26 0 0 ABS 0 sfr26 -
 __Lsfr26 0 0 ABS 0 sfr26 -
-__size_of_putch 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hsfr17 0 0 ABS 0 sfr17 -
 __Lsfr17 0 0 ABS 0 sfr17 -
 __Hsfr27 0 0 ABS 0 sfr27 -
 __Lsfr27 0 0 ABS 0 sfr27 -
-_packetCorrupt 77 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
+_packetCorrupt 72 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hsfr18 0 0 ABS 0 sfr18 -
 __Lsfr18 0 0 ABS 0 sfr18 -
 __Hsfr28 0 0 ABS 0 sfr28 -
@@ -340,8 +435,10 @@ __Hsfr19 0 0 ABS 0 sfr19 -
 __Lsfr19 0 0 ABS 0 sfr19 -
 __Hsfr29 0 0 ABS 0 sfr29 -
 __Lsfr29 0 0 ABS 0 sfr29 -
+_TRISAbits 8C 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 _TRISCbits 8E 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hstrings 0 0 ABS 0 strings -
+_T2CONbits 1C 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __Lstrings 0 0 ABS 0 strings -
 __Hbank0 0 0 ABS 0 bank0 -
 __Lbank0 0 0 ABS 0 bank0 -
@@ -351,7 +448,7 @@ __Hbank2 0 0 ABS 0 bank2 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Lbank3 0 0 ABS 0 bank3 -
-___latbits 2 0 ABS 0 - /tmp/cgtSzAX7W.obj
+___latbits 2 0 ABS 0 - /tmp/cgtYJlatY.obj
 __Hbank4 0 0 ABS 0 bank4 -
 __Lbank4 0 0 ABS 0 bank4 -
 __Hbank5 0 0 ABS 0 bank5 -
@@ -366,24 +463,30 @@ __Hbank8 0 0 ABS 0 bank8 -
 __Lbank8 0 0 ABS 0 bank8 -
 __Hbank9 0 0 ABS 0 bank9 -
 __Lbank9 0 0 ABS 0 bank9 -
-__ptext0 0 0 CODE 0 text0 dist/default/production/HockyBotHTCSerial.X.production.obj
-__ptext1 186 0 CODE 0 text1 dist/default/production/HockyBotHTCSerial.X.production.obj
-__ptext2 14A 0 CODE 0 text2 dist/default/production/HockyBotHTCSerial.X.production.obj
-__ptext4 196 0 CODE 0 text4 dist/default/production/HockyBotHTCSerial.X.production.obj
+__ptext1 49C 0 CODE 0 text1 dist/default/production/HockyBotHTCSerial.X.production.obj
+__ptext3 4EA 0 CODE 0 text3 dist/default/production/HockyBotHTCSerial.X.production.obj
+_leftPWM 71 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lclrtext 0 0 ABS 0 clrtext -
 __size_of_getch 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_PLLEN$DISABLED 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-__end_of__initialization 76 0 CODE 0 cinit dist/default/production/HockyBotHTCSerial.X.production.obj
-_packetBuffer 70 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
+__end_of__initialization 14A 0 CODE 0 cinit dist/default/production/HockyBotHTCSerial.X.production.obj
+_packetBuffer 30 0 BANK0 1 bssBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hidloc 0 0 IDLOC 0 idloc -
 __Lidloc 0 0 IDLOC 0 idloc -
+_leftDir 37 0 BANK0 1 dataBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
 __size_of_setup 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-__Hcinit 7C 0 CODE 0 cinit -
-__Lcinit 62 0 CODE 0 cinit -
+__Hcinit 150 0 CODE 0 cinit -
+__Lcinit 124 0 CODE 0 cinit -
 __size_of_main 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__pidataBANK0 4F6 0 CODE 0 idataBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
 __Hbank10 0 0 ABS 0 bank10 -
+__pbssBANK0 30 0 BANK0 1 bssBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
 __Lbank10 0 0 ABS 0 bank10 -
 __Hbank20 0 0 BANK20 1 bank20 -
 __Lbank20 0 0 BANK20 1 bank20 -
@@ -428,37 +531,38 @@ __Hbank19 0 0 BANK19 1 bank19 -
 __Lbank19 0 0 BANK19 1 bank19 -
 __Hbank29 0 0 BANK29 1 bank29 -
 __Lbank29 0 0 BANK29 1 bank29 -
-_packetReceived 78 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
-__end_of_getch 1A2 0 CODE 0 text4 dist/default/production/HockyBotHTCSerial.X.production.obj
+_packetReceived 36 0 BANK0 1 bssBANK0 dist/default/production/HockyBotHTCSerial.X.production.obj
+__end_of_getch 4F6 0 CODE 0 text3 dist/default/production/HockyBotHTCSerial.X.production.obj
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __pbssCOMMON 70 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
 _OSCCONbits 99 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-__Hend_init 62 0 CODE 0 end_init -
-__Lend_init 5E 0 CODE 0 end_init -
-__end_of_setup 186 0 CODE 0 text2 dist/default/production/HockyBotHTCSerial.X.production.obj
+__Hend_init 124 0 CODE 0 end_init -
+__Lend_init 120 0 CODE 0 end_init -
+__end_of_setup 4EA 0 CODE 0 text1 dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-intlevel0 0 0 CODE 0 functab /tmp/cgtSzAX7W.obj
+intlevel0 0 0 CODE 0 functab /tmp/cgtYJlatY.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-intlevel1 0 0 CODE 0 functab /tmp/cgtSzAX7W.obj
-intlevel2 0 0 CODE 0 functab /tmp/cgtSzAX7W.obj
-intlevel3 0 0 CODE 0 functab /tmp/cgtSzAX7W.obj
-intlevel4 0 0 CODE 0 functab /tmp/cgtSzAX7W.obj
+intlevel1 0 0 CODE 0 functab /tmp/cgtYJlatY.obj
+intlevel2 0 0 CODE 0 functab /tmp/cgtYJlatY.obj
+intlevel3 0 0 CODE 0 functab /tmp/cgtYJlatY.obj
+intlevel4 0 0 CODE 0 functab /tmp/cgtYJlatY.obj
 __CFG_LPBOR$OFF 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-intlevel5 0 0 CODE 0 functab /tmp/cgtSzAX7W.obj
+intlevel5 0 0 CODE 0 functab /tmp/cgtYJlatY.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__pcstackCOMMON 7A 0 COMMON 1 cstackCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
-start_initialization 62 0 CODE 0 cinit dist/default/production/HockyBotHTCSerial.X.production.obj
+__pcstackCOMMON 75 0 COMMON 1 cstackCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
+start_initialization 124 0 CODE 0 cinit dist/default/production/HockyBotHTCSerial.X.production.obj
+_rightPWM 73 0 COMMON 1 bssCOMMON dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_USBLSCLK$48MHz 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __Hmaintext 0 0 ABS 0 maintext -
 __Lmaintext 0 0 ABS 0 maintext -
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-__pmaintext 7C 0 CODE 0 maintext dist/default/production/HockyBotHTCSerial.X.production.obj
+__pmaintext 150 0 CODE 0 maintext dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_FOSC$INTOSC 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
-__initialization 62 0 CODE 0 cinit dist/default/production/HockyBotHTCSerial.X.production.obj
+__initialization 124 0 CODE 0 cinit dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production.obj
 # %DABS Section
@@ -479,6 +583,7 @@ __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production/HockyBotHTCSerial.X.production
 # All other numeric quantities are in decimal.
 %SEGMENTS
 reset_vec 0 0 0 2 2 CODE
-intentry 0 4 8 CD 2 CODE
+intentry 0 4 8 279 2 CODE
 config 0 8007 1000E 2 2 CONFIG
-bssCOMMON 1 70 70 D 1 COMMON
+bssCOMMON 1 70 70 A 1 COMMON
+cstackBANK0 1 20 20 19 1 BANK0
