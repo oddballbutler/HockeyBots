@@ -1,0 +1,226 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1455 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/abdiv.c
+[v ___abdiv __abdiv `(c  1 e 1 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/abmod.c
+[v ___abmod __abmod `(c  1 e 1 0 ]
+"34 /Applications/microchip/xc8/v1.21/sources/pic/abtoft.c
+[v ___abtoft __abtoft `(f  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"43 /Applications/microchip/xc8/v1.21/sources/pic/altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/atmod.c
+[v ___atmod __atmod `(m  1 e 3 0 ]
+"38 /Applications/microchip/xc8/v1.21/sources/pic/attoft.c
+[v ___attoft __attoft `(f  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"33 /Applications/microchip/xc8/v1.21/sources/pic/awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+"3 /Applications/microchip/xc8/v1.21/sources/pic/bmul.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"63 /Applications/microchip/xc8/v1.21/sources/pic/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"87 /Applications/microchip/xc8/v1.21/sources/pic/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"50 /Applications/microchip/xc8/v1.21/sources/pic/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"52 /Applications/microchip/xc8/v1.21/sources/pic/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"16 /Applications/microchip/xc8/v1.21/sources/pic/ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"17 /Applications/microchip/xc8/v1.21/sources/pic/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"45 /Applications/microchip/xc8/v1.21/sources/pic/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"28 /Applications/microchip/xc8/v1.21/sources/pic/lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"36 /Applications/microchip/xc8/v1.21/sources/pic/lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"3 /Applications/microchip/xc8/v1.21/sources/pic/lmul.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"31 /Applications/microchip/xc8/v1.21/sources/pic/lttoft.c
+[v ___lttoft __lttoft `(f  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 /Applications/microchip/xc8/v1.21/sources/pic/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"29 /Applications/microchip/xc8/v1.21/sources/pic/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"3 /Applications/microchip/xc8/v1.21/sources/pic/tmul.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"3 /Applications/microchip/xc8/v1.21/sources/pic/wmul.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"49 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c
+[v _ISR ISR `II(v  1 e 0 0 ]
+"136
+[v _setup setup `(v  1 e 0 0 ]
+"173
+[v _main main `(v  1 e 0 0 ]
+"7 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c
+[v _putch putch `(v  1 e 0 0 ]
+"15
+[v _getch getch `(uc  1 e 1 0 ]
+"24
+[v _getche getche `(uc  1 e 1 0 ]
+"831 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
+[v _PR2 PR2 `VEuc  1 e 1 @27 ]
+[s S102 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+"871
+[s S106 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S114 . 1 `S102 1 . 1 0 `S106 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES114  1 e 1 @28 ]
+[s S21 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+]
+"932
+[u S25 . 1 `S21 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES25  1 e 1 @140 ]
+[s S81 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+]
+"961
+[u S88 . 1 `S81 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES88  1 e 1 @142 ]
+[s S37 . 1 `uc 1 SCS 1 0 :2:0 
+`uc 1 IRCF 1 0 :4:2 
+`uc 1 SPLLMULT 1 0 :1:6 
+`uc 1 SPLLEN 1 0 :1:7 
+]
+"1382
+[s S42 . 1 `uc 1 SCS0 1 0 :1:0 
+`uc 1 SCS1 1 0 :1:1 
+`uc 1 IRCF0 1 0 :1:2 
+`uc 1 IRCF1 1 0 :1:3 
+`uc 1 IRCF2 1 0 :1:4 
+`uc 1 IRCF3 1 0 :1:5 
+]
+[u S49 . 1 `S37 1 . 1 0 `S42 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES49  1 e 1 @153 ]
+"1715
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"1727
+[v _LATAbits LATAbits `VES25  1 e 1 @268 ]
+"1741
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"1756
+[v _LATCbits LATCbits `VES88  1 e 1 @270 ]
+"2316
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"2344
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"2584
+[v _RCREG RCREG `VEuc  1 e 1 @409 ]
+"2603
+[v _TXREG TXREG `VEuc  1 e 1 @410 ]
+"2622
+[v _SPBRG SPBRG `VEus  1 e 2 @411 ]
+"2666
+[v _RCSTA RCSTA `VEuc  1 e 1 @413 ]
+"2727
+[v _TXSTA TXSTA `VEuc  1 e 1 @414 ]
+"5975
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"6073
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"6183
+[v _RCIE RCIE `VEb  1 e 0 @1165 ]
+"6185
+[v _RCIF RCIF `VEb  1 e 0 @141 ]
+"6339
+[v _TMR2IE TMR2IE `VEb  1 e 0 @1161 ]
+"6341
+[v _TMR2IF TMR2IF `VEb  1 e 0 @137 ]
+"6363
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1140 ]
+"6365
+[v _TRISC5 TRISC5 `VEb  1 e 0 @1141 ]
+"6395
+[v _TXIF TXIF `VEb  1 e 0 @140 ]
+"36 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/main.c
+[v _leftPWM leftPWM `uc  1 e 1 0 ]
+"37
+[v _leftDir leftDir `uc  1 e 1 0 ]
+"38
+[v _rightPWM rightPWM `uc  1 e 1 0 ]
+"39
+[v _rightDir rightDir `uc  1 e 1 0 ]
+"41
+[v _packetBuffer packetBuffer `[6]uc  1 e 6 0 ]
+"42
+[v _packetReceived packetReceived `uc  1 e 1 0 ]
+"43
+[v _packetCorrupt packetCorrupt `uc  1 e 1 0 ]
+"46
+[v _rxchar rxchar `uc  1 e 1 0 ]
+[v _i i `uc  1 e 1 0 ]
+"173
+[v _main main `(v  1 e 0 0 ]
+{
+"175
+[v main@y y `i  1 a 2 14 ]
+"174
+[v main@x x `i  1 a 2 12 ]
+"179
+[v main@yAbs yAbs `i  1 a 2 10 ]
+"178
+[v main@xAbs xAbs `i  1 a 2 8 ]
+"177
+[v main@rightPWMtemp rightPWMtemp `i  1 a 2 6 ]
+"176
+[v main@leftPWMtemp leftPWMtemp `i  1 a 2 4 ]
+"420
+} 0
+"136
+[v _setup setup `(v  1 e 0 0 ]
+{
+"170
+} 0
+"49
+[v _ISR ISR `II(v  1 e 0 0 ]
+{
+"133
+} 0
+"15 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c
+[v _getch getch `(uc  1 e 1 0 ]
+{
+"20
+} 0
