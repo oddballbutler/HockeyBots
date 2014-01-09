@@ -5,7 +5,7 @@ Linker command line:
 --edf=/Applications/microchip/xc8/v1.21/dat/en_msgs.txt -cs \
   -h+dist/default/debug/HockyBotHTCSerial.X.debug.sym \
   --cmf=dist/default/debug/HockyBotHTCSerial.X.debug.cmf -z -Q16F1455 \
-  -o/tmp/cgtrfhoDj -Mdist/default/debug/HockyBotHTCSerial.X.debug.map -E1 \
+  -o/tmp/cgtGXl4LP -Mdist/default/debug/HockyBotHTCSerial.X.debug.map -E1 \
   -ver=XC8 -ACONST=00h-0FFhx32 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -AENTRY=00h-0FFhx32 -ASTRING=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh \
@@ -28,7 +28,7 @@ Linker command line:
   -ASFR31=0F80h-0FEFh -preset_vec=00h,intentry=04h,init,end_init \
   -ppowerup=CODE -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-08008h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
-  -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/cgta40NHd.obj \
+  -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/cgtdn1wxi.obj \
   dist/default/debug/HockyBotHTCSerial.X.debug.obj 
 
 Object code version is 3.11
@@ -38,15 +38,15 @@ Machine type is 16F1455
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgta40NHd.obj
+/tmp/cgtdn1wxi.obj
                 end_init                             2F       2F        2        8       0
                 reset_vec                             0        0        3        0       0
                 config                             8007     8007        2    1000E       0
 dist/default/debug/HockyBotHTCSerial.X.debug.obj
                 cinit                                31       31        D        8       0
                 intentry                              4        4       2B        8       0
-                text3                                AC       AC        6        8       0
-                text1                                90       90       1C        8       0
+                text3                                AE       AE        6        8       0
+                text1                                90       90       1E        8       0
                 maintext                             3E       3E       52        8       0
                 cstackCOMMON                         7A       7A        2       70       1
                 bssCOMMON                            70       70        A       70       1
@@ -59,8 +59,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                31       31        D         0
                 intentry                              4        4       2B         0
                 reset_vec                             0        0        3         0
-                text3                                AC       AC        6         0
-                text1                                90       90       1C         0
+                text3                                AE       AE        6         0
+                text1                                90       90       1E         0
                 maintext                             3E       3E       52         0
 
         CLASS   STRCODE        
@@ -220,7 +220,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  0000AE  0000B2         8       0  CODE        2
+                intentry                       000004  0000B0  0000B4         8       0  CODE        2
                 bssCOMMON                      000070  00000C  00007C        70       1  COMMON      1
                 config                         008007  000002  008009     1000E       0  CONFIG      2
 
@@ -243,12 +243,12 @@ UNUSED ADDRESS RANGES
         BANK9            004A0-004EF              50           1
         BIGRAM           02000-023EF             3F0           1
         CODE             00003-00003               1           2
-                         000B2-01FFF             800
+                         000B4-01FFF             800
         COMMON           0007C-0007D               2           1
         CONST            00003-00003               1           2
-                         000B2-01FFF             100
+                         000B4-01FFF             100
         ENTRY            00003-00003               1           2
-                         000B2-01FFF             100
+                         000B4-01FFF             100
         IDLOC            08000-08003               4           2
         RAM              00020-0006F              50           1
                          000A0-000EF              50
@@ -296,17 +296,18 @@ UNUSED ADDRESS RANGES
         SFR8             00400-0041F              20           1
         SFR9             00480-0049F              20           1
         STRCODE          00003-00003               1           2
-                         000B2-01FFF            1F4E
+                         000B4-01FFF            1F4C
         STRING           00003-00003               1           2
-                         000B2-01FFF             100
+                         000B4-01FFF             100
 
                                   Symbol Table
 
+_ANSELC                  (abs)        0018E
 _GIE                     (abs)        0005F
 _ISR                     intentry     00004
+_LATC                    (abs)        0010E
 _OSCCONbits              (abs)        00099
 _PEIE                    (abs)        0005E
-_PORTC                   (abs)        0000E
 _RCIE                    (abs)        0048D
 _RCIF                    (abs)        0008D
 _RCREG                   (abs)        00199
@@ -511,9 +512,9 @@ __S1                     (abs)        0007C
 ___latbits               (abs)        00002
 __end_of_ISR             intentry     0002F
 __end_of__initialization cinit        0003B
-__end_of_getch           text3        000B2
+__end_of_getch           text3        000B4
 __end_of_main            maintext     00090
-__end_of_setup           text1        000AC
+__end_of_setup           text1        000AE
 __initialization         cinit        00031
 __pbssCOMMON             bssCOMMON    00070
 __pcstackCOMMON          cstackCOMMON 0007A
@@ -521,12 +522,12 @@ __pintentry              intentry     00004
 __pmaintext              maintext     0003E
 __ptext0                 text0        00000
 __ptext1                 text1        00090
-__ptext3                 text3        000AC
+__ptext3                 text3        000AE
 __size_of_ISR            (abs)        00000
 __size_of_getch          (abs)        00000
 __size_of_main           (abs)        00000
 __size_of_setup          (abs)        00000
-_getch                   text3        000AC
+_getch                   text3        000AE
 _i                       bssCOMMON    00076
 _main                    maintext     0003E
 _packetBuffer            bssCOMMON    00070
@@ -552,7 +553,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 96 in file "main.c"
+		line 100 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -681,12 +682,12 @@ shared estimated size: 10
 main.c
 		_ISR           		CODE           	0004	0000	43
 		_main          		CODE           	003E	0000	82
-		_setup         		CODE           	0090	0000	28
+		_setup         		CODE           	0090	0000	30
 
-main.c estimated size: 153
+main.c estimated size: 155
 
 usart.c
-		_getch         		CODE           	00AC	0000	6
+		_getch         		CODE           	00AE	0000	6
 
 usart.c estimated size: 6
 

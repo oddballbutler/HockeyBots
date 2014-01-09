@@ -3344,10 +3344,12 @@ unsigned char rxchar, i = 0;
 
 void interrupt ISR()
 {
+
 if (RCIF)
 {
 
 rxchar = getch();
+
 if (packetCorrupt)
 {
 
@@ -3370,6 +3372,8 @@ packetReceived = 1;
 i = 0;
 }
 }
+
+
 }
 
 void setup()
@@ -3378,15 +3382,19 @@ void setup()
 OSCCONbits.IRCF = 0b1111;
 
 
-TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(15916000L/(16UL * 9600) -1)); RCSTA = (0|0x90); TXSTA = (0x4|0|0x20);
+TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(16000000L/(16UL * 9600) -1)); RCSTA = (0|0x90); TXSTA = (0x4|0|0x20);
 
 
 TRISCbits.TRISC0 = 0;
 TRISCbits.TRISC1 = 0;
 TRISCbits.TRISC2 = 0;
 TRISCbits.TRISC3 = 0;
+TRISCbits.TRISC4 = 0;
+TRISCbits.TRISC5 = 1;
 
-PORTC = 0x00;
+ANSELC = 0x00;
+
+LATC = 0x00;
 
 
 RCIE = 1;
@@ -3411,22 +3419,23 @@ if (packetBuffer[1] == 0)
 if (packetBuffer[3] == 0)
 {
 
-PORTC = 0b00000100;
+LATC = 0b00000100;
 }
 else if (packetBuffer[3] == 1)
 {
 
-PORTC = 0b00001001;
+LATC = 0b00001001;
 }
 else if (packetBuffer[3] == 2)
 {
 
-PORTC = 0b00001000;
+LATC = 0b00001000;
 }
 else
 {
 
 packetCorrupt = 1;
+putch('a');
 }
 }
 else if (packetBuffer[1] == 1)
@@ -3435,22 +3444,23 @@ else if (packetBuffer[1] == 1)
 if (packetBuffer[3] == 0)
 {
 
-PORTC = 0b00000101;
+LATC = 0b00000101;
 }
 else if (packetBuffer[3] == 1)
 {
 
-PORTC = 0b00000000;
+LATC = 0b00000000;
 }
 else if (packetBuffer[3] == 2)
 {
 
-PORTC = 0b00001010;
+LATC = 0b00001010;
 }
 else
 {
 
 packetCorrupt = 1;
+putch('b');
 }
 }
 else if (packetBuffer[1] == 2)
@@ -3459,28 +3469,30 @@ else if (packetBuffer[1] == 2)
 if (packetBuffer[3] == 0)
 {
 
-PORTC = 0b00000010;
+LATC = 0b00000010;
 }
 else if (packetBuffer[3] == 1)
 {
 
-PORTC = 0b00000110;
+LATC = 0b00000110;
 }
 else if (packetBuffer[3] == 2)
 {
 
-PORTC = 0b00000001;
+LATC = 0b00000001;
 }
 else
 {
 
 packetCorrupt = 1;
+putch('c');
 }
 }
 else
 {
 
 packetCorrupt = 1;
+putch('d');
 }
 
 }
@@ -3488,8 +3500,10 @@ else
 {
 
 packetCorrupt = 1;
+putch('e');
 
 }
+packetReceived = 0;
 }
 }
 }

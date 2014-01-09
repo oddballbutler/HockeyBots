@@ -78,7 +78,7 @@
 [v _ISR ISR `II(v  1 e 0 0 ]
 "74
 [v _setup setup `(v  1 e 0 0 ]
-"96
+"100
 [v _main main `(v  1 e 0 0 ]
 "7 /Users/jeremybutler/Downloads/HockyBotHTCSerial.X/usart.c
 [v _putch putch `(v  1 e 0 0 ]
@@ -86,8 +86,6 @@
 [v _getch getch `(uc  1 e 1 0 ]
 "24
 [v _getche getche `(uc  1 e 1 0 ]
-"453 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
-[v _PORTC PORTC `VEuc  1 e 1 @14 ]
 [s S57 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
@@ -95,7 +93,7 @@
 `uc 1 TRISC4 1 0 :1:4 
 `uc 1 TRISC5 1 0 :1:5 
 ]
-"961
+"961 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
 [u S64 . 1 `S57 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES64  1 e 1 @142 ]
 [s S24 . 1 `uc 1 SCS 1 0 :2:0 
@@ -113,6 +111,10 @@
 ]
 [u S36 . 1 `S24 1 . 1 0 `S29 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES36  1 e 1 @153 ]
+"1741
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"2344
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
 "2584
 [v _RCREG RCREG `VEuc  1 e 1 @409 ]
 "2603
@@ -146,15 +148,15 @@
 "41
 [v _rxchar rxchar `uc  1 e 1 0 ]
 [v _i i `uc  1 e 1 0 ]
-"96
+"100
 [v _main main `(v  1 e 0 0 ]
 {
-"193
+"197
 } 0
 "74
 [v _setup setup `(v  1 e 0 0 ]
 {
-"93
+"97
 } 0
 "44
 [v _ISR ISR `II(v  1 e 0 0 ]

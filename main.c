@@ -42,10 +42,12 @@ unsigned char rxchar, i = 0;
 
 void interrupt ISR()
 {
+    //i=0;
     if (RCIF) //Was the interrupt the USART RX interrupt?
     {
-        //PORTC = 0b00000001;
+        //LATC = 0b00000001;
         rxchar = getch();
+        //putch(rxchar);
         if (packetCorrupt)
         {
             //We need to wait for packet start character
@@ -63,11 +65,13 @@ void interrupt ISR()
         i++;
         if (i >= 6)
         {
-            //PORTC = 0b00000011;
+            //LATC = 0b00000011;
             packetReceived = 1;
             i = 0;
         }
     }
+    //packetReceived = 1;
+    //putch(i);
 }
 
 void setup()
@@ -79,12 +83,16 @@ void setup()
     init_comms(); // set up the USART - settings defined in usart.h
 
     //Setup I/O directions
-    TRISCbits.TRISC0 = 0;
-    TRISCbits.TRISC1 = 0;
-    TRISCbits.TRISC2 = 0;
-    TRISCbits.TRISC3 = 0;
+    TRISCbits.TRISC0 = 0; // L1
+    TRISCbits.TRISC1 = 0; // L2
+    TRISCbits.TRISC2 = 0; // L3
+    TRISCbits.TRISC3 = 0; // L4
+    TRISCbits.TRISC4 = 0; // TX
+    TRISCbits.TRISC5 = 1; // RX
 
-    PORTC = 0x00;
+    ANSELC = 0x00; // All pins are digital I/O
+
+    LATC = 0x00;
 
     //Setup interrupts
     RCIE = 1; //Enable USART RX interrupt
@@ -109,22 +117,23 @@ void main()
                     if (packetBuffer[3] == 0)
                     {
                         //Joystick Y down
-                        PORTC = 0b00000100;
+                        LATC = 0b00000100;
                     }
                     else if (packetBuffer[3] == 1)
                     {
                         //Joystick Y center
-                        PORTC = 0b00001001;
+                        LATC = 0b00001001;
                     }
                     else if (packetBuffer[3] == 2)
                     {
                         //Joystick Y up
-                        PORTC = 0b00001000;
+                        LATC = 0b00001000;
                     }
                     else
                     {
                         //Joystick Y corrupt
                         packetCorrupt = 1;
+                        //putch('a');
                     }
                 }
                 else if (packetBuffer[1] == 1)
@@ -133,22 +142,23 @@ void main()
                     if (packetBuffer[3] == 0)
                     {
                         //Joystick Y down
-                        PORTC = 0b00000101;
+                        LATC = 0b00000101;
                     }
                     else if (packetBuffer[3] == 1)
                     {
                         //Joystick Y center
-                        PORTC = 0b00000000;
+                        LATC = 0b00000000;
                     }
                     else if (packetBuffer[3] == 2)
                     {
                         //Joystick Y up
-                        PORTC = 0b00001010;
+                        LATC = 0b00001010;
                     }
                     else
                     {
                         //Joystick Y corrupt
                         packetCorrupt = 1;
+                        //putch('b');
                     }
                 }
                 else if (packetBuffer[1] == 2)
@@ -157,28 +167,30 @@ void main()
                     if (packetBuffer[3] == 0)
                     {
                         //Joystick Y down
-                        PORTC = 0b00000010;
+                        LATC = 0b00000010;
                     }
                     else if (packetBuffer[3] == 1)
                     {
                         //Joystick Y center
-                        PORTC = 0b00000110;
+                        LATC = 0b00000110;
                     }
                     else if (packetBuffer[3] == 2)
                     {
                         //Joystick Y up
-                        PORTC = 0b00000001;
+                        LATC = 0b00000001;
                     }
                     else
                     {
                         //Joystick Y corrupt
                         packetCorrupt = 1;
+                        //putch('c');
                     }
                 }
                 else
                 {
                     //Joystick X corrupt
                     packetCorrupt = 1;
+                    //putch('d');
                 }
 
             }
@@ -186,8 +198,10 @@ void main()
             {
                 //Packet start and stop characters corrupt
                 packetCorrupt = 1;
-                //PORTC = 0x01;
+                //putch('e');
+                //LATC = 0x01;
             }
+            packetReceived = 0;
         }
     }
 }

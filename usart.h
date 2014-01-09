@@ -2,7 +2,7 @@
 #define _SERIAL_H_
 
 #define BAUD 9600      
-#define FOSC 15916000L
+#define FOSC 16000000L
 #define NINE 0     /* Use 9bit communication? FALSE=8bit */
 
 #define DIVIDER ((int)(FOSC/(16UL * BAUD) -1))

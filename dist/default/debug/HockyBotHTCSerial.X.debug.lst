@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.21 build 54009 
-                                                                                               Tue Jan  7 05:14:48 2014
+                                                                                               Tue Jan  7 21:50:38 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 54009
      1                           	processor	16F1455
@@ -288,615 +288,624 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 54009
    282  0FED                     	;# 
    283  0FEE                     	;# 
    284  0FEF                     	;# 
-   285  000E                     _PORTC	set	14
-   286  005F                     _GIE	set	95
-   287  005E                     _PEIE	set	94
-   288  008D                     _RCIF	set	141
-   289  008C                     _TXIF	set	140
-   290  0099                     _OSCCONbits	set	153
-   291  008E                     _TRISCbits	set	142
-   292  048D                     _RCIE	set	1165
-   293  0474                     _TRISC4	set	1140
-   294  0475                     _TRISC5	set	1141
+   285  005F                     _GIE	set	95
+   286  005E                     _PEIE	set	94
+   287  008D                     _RCIF	set	141
+   288  008C                     _TXIF	set	140
+   289  0099                     _OSCCONbits	set	153
+   290  008E                     _TRISCbits	set	142
+   291  048D                     _RCIE	set	1165
+   292  0474                     _TRISC4	set	1140
+   293  0475                     _TRISC5	set	1141
+   294  010E                     _LATC	set	270
    295  019B                     _SPBRG	set	411
-   296  0199                     _RCREG	set	409
-   297  019D                     _RCSTA	set	413
-   298  019A                     _TXREG	set	410
-   299  019E                     _TXSTA	set	414
-   300                           
-   301                           	psect	text0
-   302  0000                     __ptext0:	
-   303                           
-   304                           ;psect for function _getch
-   305                           ; #config settings
-   306  0000                     
-   307                           	psect	cinit
-   308  0031                     start_initialization:	
-   309  0031                     __initialization:	
-   310                           
-   311                           ; Clear objects allocated to COMMON
-   312  0031  01F0               	clrf	__pbssCOMMON& (0+127)
-   313  0032  01F1               	clrf	(__pbssCOMMON+1)& (0+127)
-   314  0033  01F2               	clrf	(__pbssCOMMON+2)& (0+127)
-   315  0034  01F3               	clrf	(__pbssCOMMON+3)& (0+127)
-   316  0035  01F4               	clrf	(__pbssCOMMON+4)& (0+127)
-   317  0036  01F5               	clrf	(__pbssCOMMON+5)& (0+127)
-   318  0037  01F6               	clrf	(__pbssCOMMON+6)& (0+127)
-   319  0038  01F7               	clrf	(__pbssCOMMON+7)& (0+127)
-   320  0039  01F8               	clrf	(__pbssCOMMON+8)& (0+127)
-   321  003A  01F9               	clrf	(__pbssCOMMON+9)& (0+127)
-   322  003B                     end_of_initialization:	
-   323                           ;End of C runtime variable initialization code
-   324                           
-   325  003B                     __end_of__initialization:	
-   326  003B  0020               	movlb	0
-   327  003C  3180  283E         	ljmp	_main	;jump to C main() function
-   328                           
-   329                           	psect	bssCOMMON
-   330  0070                     __pbssCOMMON:	
-   331  0070                     _packetBuffer:	
-   332  0070                     	ds	6
-   333  0076                     _i:	
-   334  0076                     	ds	1
-   335  0077                     _packetCorrupt:	
-   336  0077                     	ds	1
-   337  0078                     _packetReceived:	
-   338  0078                     	ds	1
-   339  0079                     _rxchar:	
-   340  0079                     	ds	1
-   341                           
-   342                           	psect	cstackCOMMON
-   343  007A                     __pcstackCOMMON:	
-   344  007A                     ??_getch:	
-   345  007A                     ?_ISR:	
-   346                           ; 0 bytes @ 0x0
-   347                           
-   348  007A                     ??_ISR:	
-   349                           ; 0 bytes @ 0x0
-   350                           
-   351  007A                     ?_setup:	
-   352                           ; 0 bytes @ 0x0
-   353                           
-   354  007A                     ?_main:	
-   355                           ; 0 bytes @ 0x0
-   356                           
-   357  007A                     ?_getch:	
-   358                           ; 0 bytes @ 0x0
-   359                           
+   296  018E                     _ANSELC	set	398
+   297  0199                     _RCREG	set	409
+   298  019D                     _RCSTA	set	413
+   299  019A                     _TXREG	set	410
+   300  019E                     _TXSTA	set	414
+   301                           
+   302                           	psect	text0
+   303  0000                     __ptext0:	
+   304                           
+   305                           ;psect for function _getch
+   306                           ; #config settings
+   307  0000                     
+   308                           	psect	cinit
+   309  0031                     start_initialization:	
+   310  0031                     __initialization:	
+   311                           
+   312                           ; Clear objects allocated to COMMON
+   313  0031  01F0               	clrf	__pbssCOMMON& (0+127)
+   314  0032  01F1               	clrf	(__pbssCOMMON+1)& (0+127)
+   315  0033  01F2               	clrf	(__pbssCOMMON+2)& (0+127)
+   316  0034  01F3               	clrf	(__pbssCOMMON+3)& (0+127)
+   317  0035  01F4               	clrf	(__pbssCOMMON+4)& (0+127)
+   318  0036  01F5               	clrf	(__pbssCOMMON+5)& (0+127)
+   319  0037  01F6               	clrf	(__pbssCOMMON+6)& (0+127)
+   320  0038  01F7               	clrf	(__pbssCOMMON+7)& (0+127)
+   321  0039  01F8               	clrf	(__pbssCOMMON+8)& (0+127)
+   322  003A  01F9               	clrf	(__pbssCOMMON+9)& (0+127)
+   323  003B                     end_of_initialization:	
+   324                           ;End of C runtime variable initialization code
+   325                           
+   326  003B                     __end_of__initialization:	
+   327  003B  0020               	movlb	0
+   328  003C  3180  283E         	ljmp	_main	;jump to C main() function
+   329                           
+   330                           	psect	bssCOMMON
+   331  0070                     __pbssCOMMON:	
+   332  0070                     _packetBuffer:	
+   333  0070                     	ds	6
+   334  0076                     _i:	
+   335  0076                     	ds	1
+   336  0077                     _packetCorrupt:	
+   337  0077                     	ds	1
+   338  0078                     _packetReceived:	
+   339  0078                     	ds	1
+   340  0079                     _rxchar:	
+   341  0079                     	ds	1
+   342                           
+   343                           	psect	cstackCOMMON
+   344  007A                     __pcstackCOMMON:	
+   345  007A                     ??_getch:	
+   346  007A                     ?_ISR:	
+   347                           ; 0 bytes @ 0x0
+   348                           
+   349  007A                     ??_ISR:	
+   350                           ; 0 bytes @ 0x0
+   351                           
+   352  007A                     ?_setup:	
+   353                           ; 0 bytes @ 0x0
+   354                           
+   355  007A                     ?_main:	
+   356                           ; 0 bytes @ 0x0
+   357                           
+   358  007A                     ?_getch:	
+   359                           ; 0 bytes @ 0x0
    360                           
-   361                           ; 1 bytes @ 0x0
-   362  007A                     	ds	2
-   363  007C                     ??_setup:	
-   364  007C                     ??_main:	
-   365                           ; 0 bytes @ 0x2
-   366                           
+   361                           
+   362                           ; 1 bytes @ 0x0
+   363  007A                     	ds	2
+   364  007C                     ??_setup:	
+   365  007C                     ??_main:	
+   366                           ; 0 bytes @ 0x2
    367                           
-   368                           	psect	maintext
-   369  003E                     __pmaintext:	
-   370                           ; 0 bytes @ 0x2
-   371 ;;
-   372 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   373 ;;
-   374 ;; *************** function _main *****************
-   375 ;; Defined at:
-   376 ;;		line 96 in file "main.c"
-   377 ;; Parameters:    Size  Location     Type
-   378 ;;		None
-   379 ;; Auto vars:     Size  Location     Type
-   380 ;;		None
-   381 ;; Return value:  Size  Location     Type
-   382 ;;		None               void
-   383 ;; Registers used:
-   384 ;;		wreg, status,2, status,0, pclath, cstack
-   385 ;; Tracked objects:
-   386 ;;		On entry : 17F/0
-   387 ;;		On exit  : 0/0
-   388 ;;		Unchanged: 0/0
-   389 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   368                           
+   369                           	psect	maintext
+   370  003E                     __pmaintext:	
+   371                           ; 0 bytes @ 0x2
+   372 ;;
+   373 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   374 ;;
+   375 ;; *************** function _main *****************
+   376 ;; Defined at:
+   377 ;;		line 100 in file "main.c"
+   378 ;; Parameters:    Size  Location     Type
+   379 ;;		None
+   380 ;; Auto vars:     Size  Location     Type
+   381 ;;		None
+   382 ;; Return value:  Size  Location     Type
+   383 ;;		None               void
+   384 ;; Registers used:
+   385 ;;		wreg, status,2, status,0, pclath, cstack
+   386 ;; Tracked objects:
+   387 ;;		On entry : 17F/0
+   388 ;;		On exit  : 0/0
+   389 ;;		Unchanged: 0/0
+   390 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12
-   390 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   391 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   391 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   392 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   392 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   393 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   393 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   394 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   394 ;;Total ram usage:        0 bytes
-   395 ;; Hardware stack levels required when called:    3
-   396 ;; This function calls:
-   397 ;;		_setup
-   398 ;; This function is called by:
-   399 ;;		Startup code after reset
-   400 ;; This function uses a non-reentrant model
-   401 ;;
-   402                           
+   395 ;;Total ram usage:        0 bytes
+   396 ;; Hardware stack levels required when called:    3
+   397 ;; This function calls:
+   398 ;;		_setup
+   399 ;; This function is called by:
+   400 ;;		Startup code after reset
+   401 ;; This function uses a non-reentrant model
+   402 ;;
    403                           
-   404                           ;psect for function _main
-   405  003E                     _main:	
-   406                           
-   407                           ;main.c: 97: setup();
-   408                           
-   409                           ;incstack = 0
-   410                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
-   411  003E  3180  2090  3180   	fcall	_setup
-   412  0041  2886               	goto	l512
-   413  0042                     l516:	
-   414  0042  0875               	movf	_packetBuffer+5,w
-   415  0043  3A03               	xorlw	3
-   416  0044  1D03               	skipz
-   417  0045  288D               	goto	l69
-   418                           
-   419                           ;main.c: 104: {
-   420                           ;main.c: 106: if (packetBuffer[1] == 0)
-   421  0046  08F1               	movf	_packetBuffer+1,f
-   422  0047  1D03               	skipz
-   423  0048  285A               	goto	l532
-   424                           
-   425                           ;main.c: 107: {
-   426                           ;main.c: 109: if (packetBuffer[3] == 0)
-   427  0049  08F3               	movf	_packetBuffer+3,f
-   428  004A  1D03               	skipz
-   429  004B  284E               	goto	l524
-   430                           
-   431                           ;main.c: 110: {
-   432                           ;main.c: 112: PORTC = 0b00000100;
-   433  004C  3004               	movlw	4
-   434  004D  2884               	goto	L7
-   435  004E                     l524:	
-   436                           ;main.c: 113: }
-   437                           
+   404                           
+   405                           ;psect for function _main
+   406  003E                     _main:	
+   407                           
+   408                           ;main.c: 101: setup();
+   409                           
+   410                           ;incstack = 0
+   411                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   412  003E  3180  2090  3180   	fcall	_setup
+   413  0041  2886               	goto	l520
+   414  0042                     l524:	
+   415  0042  0875               	movf	_packetBuffer+5,w
+   416  0043  3A03               	xorlw	3
+   417  0044  1D03               	skipz
+   418  0045  288D               	goto	l71
+   419                           
+   420                           ;main.c: 108: {
+   421                           ;main.c: 110: if (packetBuffer[1] == 0)
+   422  0046  08F1               	movf	_packetBuffer+1,f
+   423  0047  1D03               	skipz
+   424  0048  285A               	goto	l540
+   425                           
+   426                           ;main.c: 111: {
+   427                           ;main.c: 113: if (packetBuffer[3] == 0)
+   428  0049  08F3               	movf	_packetBuffer+3,f
+   429  004A  1D03               	skipz
+   430  004B  284E               	goto	l532
+   431                           
+   432                           ;main.c: 114: {
+   433                           ;main.c: 116: LATC = 0b00000100;
+   434  004C  3004               	movlw	4
+   435  004D  2884               	goto	L7
+   436  004E                     l532:	
+   437                           ;main.c: 117: }
    438                           
-   439                           ;main.c: 114: else if (packetBuffer[3] == 1)
-   440  004E  0873               	movf	_packetBuffer+3,w
-   441  004F  3A01               	xorlw	1
-   442  0050  1D03               	skipz
-   443  0051  2854               	goto	l528
-   444                           
-   445                           ;main.c: 115: {
-   446                           ;main.c: 117: PORTC = 0b00001001;
-   447  0052  3009               	movlw	9
-   448  0053  2884               	goto	L7
-   449  0054                     l528:	
-   450                           ;main.c: 118: }
-   451                           
+   439                           
+   440                           ;main.c: 118: else if (packetBuffer[3] == 1)
+   441  004E  0873               	movf	_packetBuffer+3,w
+   442  004F  3A01               	xorlw	1
+   443  0050  1D03               	skipz
+   444  0051  2854               	goto	l536
+   445                           
+   446                           ;main.c: 119: {
+   447                           ;main.c: 121: LATC = 0b00001001;
+   448  0052  3009               	movlw	9
+   449  0053  2884               	goto	L7
+   450  0054                     l536:	
+   451                           ;main.c: 122: }
    452                           
-   453                           ;main.c: 119: else if (packetBuffer[3] == 2)
-   454  0054  0873               	movf	_packetBuffer+3,w
-   455  0055  3A02               	xorlw	2
-   456  0056  1D03               	skipz
-   457  0057  288D               	goto	l69
-   458                           
-   459                           ;main.c: 120: {
-   460                           ;main.c: 122: PORTC = 0b00001000;
-   461  0058  3008               	movlw	8
-   462  0059  2884               	goto	L7
-   463  005A                     l532:	
-   464                           ;main.c: 128: }
-   465                           ;main.c: 129: }
-   466                           
-   467                           ;main.c: 124: else
-   468                           ;main.c: 125: {
-   469                           ;main.c: 127: packetCorrupt = 1;
-   470                           
-   471                           ;main.c: 123: }
-   472                           
+   453                           
+   454                           ;main.c: 123: else if (packetBuffer[3] == 2)
+   455  0054  0873               	movf	_packetBuffer+3,w
+   456  0055  3A02               	xorlw	2
+   457  0056  1D03               	skipz
+   458  0057  288D               	goto	l71
+   459                           
+   460                           ;main.c: 124: {
+   461                           ;main.c: 126: LATC = 0b00001000;
+   462  0058  3008               	movlw	8
+   463  0059  2884               	goto	L7
+   464  005A                     l540:	
+   465                           ;main.c: 132: }
+   466                           ;main.c: 133: }
+   467                           
+   468                           ;main.c: 128: else
+   469                           ;main.c: 129: {
+   470                           ;main.c: 131: packetCorrupt = 1;
+   471                           
+   472                           ;main.c: 127: }
    473                           
-   474                           ;main.c: 130: else if (packetBuffer[1] == 1)
-   475  005A  0871               	movf	_packetBuffer+1,w
-   476  005B  3A01               	xorlw	1
-   477  005C  1D03               	skipz
-   478  005D  2870               	goto	l546
-   479                           
-   480                           ;main.c: 131: {
-   481                           ;main.c: 133: if (packetBuffer[3] == 0)
-   482  005E  08F3               	movf	_packetBuffer+3,f
-   483  005F  1D03               	skipz
-   484  0060  2863               	goto	l538
-   485                           
-   486                           ;main.c: 134: {
-   487                           ;main.c: 136: PORTC = 0b00000101;
-   488  0061  3005               	movlw	5
-   489  0062  2884               	goto	L7
-   490  0063                     l538:	
-   491                           ;main.c: 137: }
-   492                           
+   474                           
+   475                           ;main.c: 134: else if (packetBuffer[1] == 1)
+   476  005A  0871               	movf	_packetBuffer+1,w
+   477  005B  3A01               	xorlw	1
+   478  005C  1D03               	skipz
+   479  005D  2870               	goto	l554
+   480                           
+   481                           ;main.c: 135: {
+   482                           ;main.c: 137: if (packetBuffer[3] == 0)
+   483  005E  08F3               	movf	_packetBuffer+3,f
+   484  005F  1D03               	skipz
+   485  0060  2863               	goto	l546
+   486                           
+   487                           ;main.c: 138: {
+   488                           ;main.c: 140: LATC = 0b00000101;
+   489  0061  3005               	movlw	5
+   490  0062  2884               	goto	L7
+   491  0063                     l546:	
+   492                           ;main.c: 141: }
    493                           
-   494                           ;main.c: 138: else if (packetBuffer[3] == 1)
-   495  0063  0873               	movf	_packetBuffer+3,w
-   496  0064  3A01               	xorlw	1
-   497  0065  1D03               	skipz
-   498  0066  286A               	goto	l542
-   499                           
-   500                           ;main.c: 139: {
-   501                           ;main.c: 141: PORTC = 0b00000000;
-   502  0067  0020               	movlb	0	; select bank0
-   503  0068  018E               	clrf	14	;volatile
-   504                           
-   505                           ;main.c: 142: }
-   506  0069  2886               	goto	l512
-   507  006A                     l542:	
-   508                           
-   509                           ;main.c: 143: else if (packetBuffer[3] == 2)
-   510  006A  0873               	movf	_packetBuffer+3,w
-   511  006B  3A02               	xorlw	2
-   512  006C  1D03               	skipz
-   513  006D  288D               	goto	l69
-   514                           
-   515                           ;main.c: 144: {
-   516                           ;main.c: 146: PORTC = 0b00001010;
-   517  006E  300A               	movlw	10
-   518  006F  2884               	goto	L7
-   519  0070                     l546:	
-   520                           ;main.c: 152: }
-   521                           ;main.c: 153: }
-   522                           
-   523                           ;main.c: 148: else
-   524                           ;main.c: 149: {
-   525                           ;main.c: 151: packetCorrupt = 1;
-   526                           
-   527                           ;main.c: 147: }
-   528                           
+   494                           
+   495                           ;main.c: 142: else if (packetBuffer[3] == 1)
+   496  0063  0873               	movf	_packetBuffer+3,w
+   497  0064  3A01               	xorlw	1
+   498  0065  1D03               	skipz
+   499  0066  286A               	goto	l550
+   500                           
+   501                           ;main.c: 143: {
+   502                           ;main.c: 145: LATC = 0b00000000;
+   503  0067  0022               	movlb	2	; select bank2
+   504  0068  018E               	clrf	14	;volatile
+   505                           
+   506                           ;main.c: 146: }
+   507  0069  2886               	goto	l520
+   508  006A                     l550:	
+   509                           
+   510                           ;main.c: 147: else if (packetBuffer[3] == 2)
+   511  006A  0873               	movf	_packetBuffer+3,w
+   512  006B  3A02               	xorlw	2
+   513  006C  1D03               	skipz
+   514  006D  288D               	goto	l71
+   515                           
+   516                           ;main.c: 148: {
+   517                           ;main.c: 150: LATC = 0b00001010;
+   518  006E  300A               	movlw	10
+   519  006F  2884               	goto	L7
+   520  0070                     l554:	
+   521                           ;main.c: 156: }
+   522                           ;main.c: 157: }
+   523                           
+   524                           ;main.c: 152: else
+   525                           ;main.c: 153: {
+   526                           ;main.c: 155: packetCorrupt = 1;
+   527                           
+   528                           ;main.c: 151: }
    529                           
-   530                           ;main.c: 154: else if (packetBuffer[1] == 2)
-   531  0070  0871               	movf	_packetBuffer+1,w
-   532  0071  3A02               	xorlw	2
-   533  0072  1D03               	skipz
-   534  0073  288D               	goto	l69
-   535                           
-   536                           ;main.c: 155: {
-   537                           ;main.c: 157: if (packetBuffer[3] == 0)
-   538  0074  08F3               	movf	_packetBuffer+3,f
-   539  0075  1D03               	skipz
-   540  0076  2879               	goto	l552
-   541                           
-   542                           ;main.c: 158: {
-   543                           ;main.c: 160: PORTC = 0b00000010;
-   544  0077  3002               	movlw	2
-   545  0078  2884               	goto	L7
-   546  0079                     l552:	
-   547                           ;main.c: 161: }
-   548                           
+   530                           
+   531                           ;main.c: 158: else if (packetBuffer[1] == 2)
+   532  0070  0871               	movf	_packetBuffer+1,w
+   533  0071  3A02               	xorlw	2
+   534  0072  1D03               	skipz
+   535  0073  288D               	goto	l71
+   536                           
+   537                           ;main.c: 159: {
+   538                           ;main.c: 161: if (packetBuffer[3] == 0)
+   539  0074  08F3               	movf	_packetBuffer+3,f
+   540  0075  1D03               	skipz
+   541  0076  2879               	goto	l560
+   542                           
+   543                           ;main.c: 162: {
+   544                           ;main.c: 164: LATC = 0b00000010;
+   545  0077  3002               	movlw	2
+   546  0078  2884               	goto	L7
+   547  0079                     l560:	
+   548                           ;main.c: 165: }
    549                           
-   550                           ;main.c: 162: else if (packetBuffer[3] == 1)
-   551  0079  0873               	movf	_packetBuffer+3,w
-   552  007A  3A01               	xorlw	1
-   553  007B  1D03               	skipz
-   554  007C  287F               	goto	l556
-   555                           
-   556                           ;main.c: 163: {
-   557                           ;main.c: 165: PORTC = 0b00000110;
-   558  007D  3006               	movlw	6
-   559  007E  2884               	goto	L7
-   560  007F                     l556:	
-   561                           ;main.c: 166: }
-   562                           
+   550                           
+   551                           ;main.c: 166: else if (packetBuffer[3] == 1)
+   552  0079  0873               	movf	_packetBuffer+3,w
+   553  007A  3A01               	xorlw	1
+   554  007B  1D03               	skipz
+   555  007C  287F               	goto	l564
+   556                           
+   557                           ;main.c: 167: {
+   558                           ;main.c: 169: LATC = 0b00000110;
+   559  007D  3006               	movlw	6
+   560  007E  2884               	goto	L7
+   561  007F                     l564:	
+   562                           ;main.c: 170: }
    563                           
-   564                           ;main.c: 167: else if (packetBuffer[3] == 2)
-   565  007F  0873               	movf	_packetBuffer+3,w
-   566  0080  3A02               	xorlw	2
-   567  0081  1D03               	skipz
-   568  0082  288D               	goto	l69
-   569                           
-   570                           ;main.c: 168: {
-   571                           ;main.c: 170: PORTC = 0b00000001;
-   572  0083  3001               	movlw	1
-   573  0084                     L7:	
-   574  0084  0020               	movlb	0	; select bank0
-   575  0085  008E               	movwf	14	;volatile
-   576  0086                     l512:	
-   577                           ;main.c: 99: while (1)
-   578                           
-   579                           ;main.c: 182: }
-   580                           ;main.c: 184: }
-   581                           
-   582                           ;main.c: 171: }
-   583                           
+   564                           
+   565                           ;main.c: 171: else if (packetBuffer[3] == 2)
+   566  007F  0873               	movf	_packetBuffer+3,w
+   567  0080  3A02               	xorlw	2
+   568  0081  1D03               	skipz
+   569  0082  288D               	goto	l71
+   570                           
+   571                           ;main.c: 172: {
+   572                           ;main.c: 174: LATC = 0b00000001;
+   573  0083  3001               	movlw	1
+   574  0084                     L7:	
+   575  0084  0022               	movlb	2	; select bank2
+   576  0085  008E               	movwf	14	;volatile
+   577  0086                     l520:	
+   578                           ;main.c: 103: while (1)
+   579                           
+   580                           ;main.c: 186: }
+   581                           ;main.c: 188: }
+   582                           
+   583                           ;main.c: 175: }
    584                           
-   585                           ;main.c: 100: {
-   586                           ;main.c: 101: if (packetReceived)
-   587  0086  0878               	movf	_packetReceived,w
-   588  0087  1903               	btfsc	3,2
-   589  0088  2886               	goto	l512
-   590                           
-   591                           ;main.c: 102: {
-   592                           ;main.c: 103: if (packetBuffer[0] == 0x02 && packetBuffer[5] == 0x03)
-   593  0089  0870               	movf	_packetBuffer,w
-   594  008A  3A02               	xorlw	2
-   595  008B  1903               	btfsc	3,2
-   596  008C  2842               	goto	l516
-   597  008D                     l69:	
-   598                           ;main.c: 176: }
-   599                           ;main.c: 177: }
-   600                           
-   601                           ;main.c: 172: else
-   602                           ;main.c: 173: {
-   603                           ;main.c: 175: packetCorrupt = 1;
-   604                           
+   585                           
+   586                           ;main.c: 104: {
+   587                           ;main.c: 105: if (packetReceived)
+   588  0086  0878               	movf	_packetReceived,w
+   589  0087  1903               	btfsc	3,2
+   590  0088  2886               	goto	l520
+   591                           
+   592                           ;main.c: 106: {
+   593                           ;main.c: 107: if (packetBuffer[0] == 0x02 && packetBuffer[5] == 0x03)
+   594  0089  0870               	movf	_packetBuffer,w
+   595  008A  3A02               	xorlw	2
+   596  008B  1903               	btfsc	3,2
+   597  008C  2842               	goto	l524
+   598  008D                     l71:	
+   599                           ;main.c: 180: }
+   600                           ;main.c: 181: }
+   601                           
+   602                           ;main.c: 176: else
+   603                           ;main.c: 177: {
+   604                           ;main.c: 179: packetCorrupt = 1;
    605                           
-   606                           ;main.c: 178: else
-   607                           ;main.c: 179: {
-   608                           ;main.c: 181: packetCorrupt = 1;
-   609  008D  01F7               	clrf	_packetCorrupt
-   610  008E  0AF7               	incf	_packetCorrupt,f
-   611  008F  2886               	goto	l512
-   612  0090                     __end_of_main:	
-   613                           ;main.c: 185: else
-   614                           ;main.c: 186: {
-   615                           ;main.c: 188: packetCorrupt = 1;
-   616                           
+   606                           
+   607                           ;main.c: 182: else
+   608                           ;main.c: 183: {
+   609                           ;main.c: 185: packetCorrupt = 1;
+   610  008D  01F7               	clrf	_packetCorrupt
+   611  008E  0AF7               	incf	_packetCorrupt,f
+   612  008F  2886               	goto	l520
+   613  0090                     __end_of_main:	
+   614                           ;main.c: 189: else
+   615                           ;main.c: 190: {
+   616                           ;main.c: 192: packetCorrupt = 1;
    617                           
-   618                           	psect	text1
-   619  0090                     __ptext1:	
-   620 ;; *************** function _setup *****************
-   621 ;; Defined at:
-   622 ;;		line 74 in file "main.c"
-   623 ;; Parameters:    Size  Location     Type
-   624 ;;		None
-   625 ;; Auto vars:     Size  Location     Type
-   626 ;;		None
-   627 ;; Return value:  Size  Location     Type
-   628 ;;		None               void
-   629 ;; Registers used:
-   630 ;;		wreg, status,2, status,0
-   631 ;; Tracked objects:
-   632 ;;		On entry : 0/0
-   633 ;;		On exit  : 0/0
-   634 ;;		Unchanged: 0/0
-   635 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   618                           
+   619                           	psect	text1
+   620  0090                     __ptext1:	
+   621 ;; *************** function _setup *****************
+   622 ;; Defined at:
+   623 ;;		line 74 in file "main.c"
+   624 ;; Parameters:    Size  Location     Type
+   625 ;;		None
+   626 ;; Auto vars:     Size  Location     Type
+   627 ;;		None
+   628 ;; Return value:  Size  Location     Type
+   629 ;;		None               void
+   630 ;; Registers used:
+   631 ;;		wreg, status,2, status,0
+   632 ;; Tracked objects:
+   633 ;;		On entry : 0/0
+   634 ;;		On exit  : 0/0
+   635 ;;		Unchanged: 0/0
+   636 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12
-   636 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   637 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   637 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   638 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   638 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   639 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   639 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   640 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   640 ;;Total ram usage:        0 bytes
-   641 ;; Hardware stack levels used:    1
-   642 ;; Hardware stack levels required when called:    2
-   643 ;; This function calls:
-   644 ;;		Nothing
-   645 ;; This function is called by:
-   646 ;;		_main
-   647 ;; This function uses a non-reentrant model
-   648 ;;
-   649                           
+   641 ;;Total ram usage:        0 bytes
+   642 ;; Hardware stack levels used:    1
+   643 ;; Hardware stack levels required when called:    2
+   644 ;; This function calls:
+   645 ;;		Nothing
+   646 ;; This function is called by:
+   647 ;;		_main
+   648 ;; This function uses a non-reentrant model
+   649 ;;
    650                           
-   651                           ;psect for function _setup
-   652  0090                     _setup:	
-   653                           
-   654                           ;main.c: 76: OSCCONbits.IRCF = 0b1101;
-   655                           
-   656                           ;incstack = 0
-   657                           ; Regs used in _setup: [wreg+status,2+status,0]
-   658  0090  0021               	movlb	1	; select bank1
-   659  0091  0819               	movf	25,w	;volatile
-   660  0092  39C3               	andlw	-61
-   661  0093  3834               	iorlw	52
-   662  0094  0099               	movwf	25	;volatile
-   663                           
-   664                           ;main.c: 79: TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(4000000L/(16UL * 9600) -1)); RCSTA =
-      +                           (0|0x90); TXSTA = (0x4|0|0x20);
-   665  0095  168E               	bsf	14,5	;volatile
-   666  0096  160E               	bsf	14,4	;volatile
-   667  0097  3000               	movlw	0
-   668  0098  0023               	movlb	3	; select bank3
-   669  0099  009C               	movwf	28	;volatile
-   670  009A  3019               	movlw	25
-   671  009B  009B               	movwf	27	;volatile
-   672  009C  3090               	movlw	144
-   673  009D  009D               	movwf	29	;volatile
-   674  009E  3024               	movlw	36
-   675  009F  009E               	movwf	30	;volatile
-   676                           
-   677                           ;main.c: 82: TRISCbits.TRISC0 = 0;
-   678  00A0  0021               	movlb	1	; select bank1
-   679  00A1  100E               	bcf	14,0	;volatile
-   680                           
-   681                           ;main.c: 83: TRISCbits.TRISC1 = 0;
-   682  00A2  108E               	bcf	14,1	;volatile
-   683                           
-   684                           ;main.c: 84: TRISCbits.TRISC2 = 0;
-   685  00A3  110E               	bcf	14,2	;volatile
-   686                           
-   687                           ;main.c: 85: TRISCbits.TRISC3 = 0;
-   688  00A4  118E               	bcf	14,3	;volatile
-   689                           
-   690                           ;main.c: 87: PORTC = 0x00;
-   691  00A5  0020               	movlb	0	; select bank0
-   692  00A6  018E               	clrf	14	;volatile
-   693                           
-   694                           ;main.c: 90: RCIE = 1;
-   695  00A7  0021               	movlb	1	; select bank1
-   696  00A8  1691               	bsf	17,5	;volatile
-   697                           
-   698                           ;main.c: 91: PEIE = 1;
-   699  00A9  170B               	bsf	11,6	;volatile
-   700                           
-   701                           ;main.c: 92: GIE = 1;
-   702  00AA  178B               	bsf	11,7	;volatile
-   703  00AB  0008               	return
-   704  00AC                     __end_of_setup:	
-   705                           
-   706                           	psect	intentry
-   707  0004                     __pintentry:	
-   708 ;; *************** function _ISR *****************
-   709 ;; Defined at:
-   710 ;;		line 44 in file "main.c"
-   711 ;; Parameters:    Size  Location     Type
-   712 ;;		None
-   713 ;; Auto vars:     Size  Location     Type
-   714 ;;		None
-   715 ;; Return value:  Size  Location     Type
-   716 ;;		None               void
-   717 ;; Registers used:
-   718 ;;		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
-   719 ;; Tracked objects:
-   720 ;;		On entry : 0/0
-   721 ;;		On exit  : 0/0
-   722 ;;		Unchanged: 0/0
-   723 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   651                           
+   652                           ;psect for function _setup
+   653  0090                     _setup:	
+   654                           
+   655                           ;main.c: 76: OSCCONbits.IRCF = 0b1111;
+   656                           
+   657                           ;incstack = 0
+   658                           ; Regs used in _setup: [wreg+status,2+status,0]
+   659  0090  303C               	movlw	60
+   660  0091  0021               	movlb	1	; select bank1
+   661  0092  0499               	iorwf	25,f	;volatile
+   662                           
+   663                           ;main.c: 79: TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(16000000L/(16UL * 9600) -1)); RCSTA 
+      +                          = (0|0x90); TXSTA = (0x4|0|0x20);
+   664  0093  168E               	bsf	14,5	;volatile
+   665  0094  160E               	bsf	14,4	;volatile
+   666  0095  3000               	movlw	0
+   667  0096  0023               	movlb	3	; select bank3
+   668  0097  009C               	movwf	28	;volatile
+   669  0098  3067               	movlw	103
+   670  0099  009B               	movwf	27	;volatile
+   671  009A  3090               	movlw	144
+   672  009B  009D               	movwf	29	;volatile
+   673  009C  3024               	movlw	36
+   674  009D  009E               	movwf	30	;volatile
+   675                           
+   676                           ;main.c: 82: TRISCbits.TRISC0 = 0;
+   677  009E  0021               	movlb	1	; select bank1
+   678  009F  100E               	bcf	14,0	;volatile
+   679                           
+   680                           ;main.c: 83: TRISCbits.TRISC1 = 0;
+   681  00A0  108E               	bcf	14,1	;volatile
+   682                           
+   683                           ;main.c: 84: TRISCbits.TRISC2 = 0;
+   684  00A1  110E               	bcf	14,2	;volatile
+   685                           
+   686                           ;main.c: 85: TRISCbits.TRISC3 = 0;
+   687  00A2  118E               	bcf	14,3	;volatile
+   688                           
+   689                           ;main.c: 86: TRISCbits.TRISC4 = 0;
+   690  00A3  120E               	bcf	14,4	;volatile
+   691                           
+   692                           ;main.c: 87: TRISCbits.TRISC5 = 1;
+   693  00A4  168E               	bsf	14,5	;volatile
+   694                           
+   695                           ;main.c: 89: ANSELC = 0x00;
+   696  00A5  0023               	movlb	3	; select bank3
+   697  00A6  018E               	clrf	14	;volatile
+   698                           
+   699                           ;main.c: 91: LATC = 0x00;
+   700  00A7  0022               	movlb	2	; select bank2
+   701  00A8  018E               	clrf	14	;volatile
+   702                           
+   703                           ;main.c: 94: RCIE = 1;
+   704  00A9  0021               	movlb	1	; select bank1
+   705  00AA  1691               	bsf	17,5	;volatile
+   706                           
+   707                           ;main.c: 95: PEIE = 1;
+   708  00AB  170B               	bsf	11,6	;volatile
+   709                           
+   710                           ;main.c: 96: GIE = 1;
+   711  00AC  178B               	bsf	11,7	;volatile
+   712  00AD  0008               	return
+   713  00AE                     __end_of_setup:	
+   714                           
+   715                           	psect	intentry
+   716  0004                     __pintentry:	
+   717 ;; *************** function _ISR *****************
+   718 ;; Defined at:
+   719 ;;		line 44 in file "main.c"
+   720 ;; Parameters:    Size  Location     Type
+   721 ;;		None
+   722 ;; Auto vars:     Size  Location     Type
+   723 ;;		None
+   724 ;; Return value:  Size  Location     Type
+   725 ;;		None               void
+   726 ;; Registers used:
+   727 ;;		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+   728 ;; Tracked objects:
+   729 ;;		On entry : 0/0
+   730 ;;		On exit  : 0/0
+   731 ;;		Unchanged: 0/0
+   732 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12
-   724 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   733 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   725 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   734 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   726 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   735 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   727 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+   736 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   728 ;;Total ram usage:        2 bytes
-   729 ;; Hardware stack levels used:    1
-   730 ;; Hardware stack levels required when called:    1
-   731 ;; This function calls:
-   732 ;;		_getch
-   733 ;; This function is called by:
-   734 ;;		Interrupt level 1
-   735 ;; This function uses a non-reentrant model
-   736 ;;
-   737                           
-   738  0004                     _ISR:	
-   739                           
-   740                           ;incstack = 0
-   741                           ; Regs used in _ISR: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
-   742  0004  3180               	pagesel	$
-   743  0005  0020               	movlb	0	; select bank0
-   744  0006  087F               	movf	127,w
-   745  0007  00FB               	movwf	??_ISR+1
+   737 ;;Total ram usage:        2 bytes
+   738 ;; Hardware stack levels used:    1
+   739 ;; Hardware stack levels required when called:    1
+   740 ;; This function calls:
+   741 ;;		_getch
+   742 ;; This function is called by:
+   743 ;;		Interrupt level 1
+   744 ;; This function uses a non-reentrant model
+   745 ;;
    746                           
-   747                           ;main.c: 45: if (RCIF)
-   748  0008  1E91               	btfss	17,5	;volatile
-   749  0009  282B               	goto	i1l43
-   750                           
-   751                           ;main.c: 46: {
-   752                           ;main.c: 48: rxchar = getch();
-   753  000A  3180  20AC  3180   	fcall	_getch
-   754  000D  00FA               	movwf	??_ISR
-   755  000E  087A               	movf	??_ISR,w
-   756  000F  00F9               	movwf	_rxchar
-   757                           
-   758                           ;main.c: 49: if (packetCorrupt)
-   759  0010  0877               	movf	_packetCorrupt,w
-   760  0011  1903               	btfsc	3,2
-   761  0012  2818               	goto	i1l578
-   762                           
-   763                           ;main.c: 50: {
-   764                           ;main.c: 52: if (rxchar == 0x02)
-   765  0013  0879               	movf	_rxchar,w
-   766  0014  3A02               	xorlw	2
-   767  0015  1D03               	skipz
-   768  0016  282B               	goto	i1l43
-   769                           
-   770                           ;main.c: 53: {
-   771                           ;main.c: 55: packetCorrupt = 0;
-   772  0017  01F7               	clrf	_packetCorrupt
-   773  0018                     i1l578:	
-   774                           ;main.c: 57: else
-   775                           ;main.c: 58: {
-   776                           ;main.c: 59: return;
-   777                           
-   778                           ;main.c: 56: }
-   779                           
-   780                           
-   781                           ;main.c: 60: }
-   782                           ;main.c: 61: }
-   783                           ;main.c: 62: packetBuffer[i] = rxchar;
-   784  0018  0879               	movf	_rxchar,w
-   785  0019  00FA               	movwf	??_ISR
-   786  001A  0876               	movf	_i,w
-   787  001B  3E70               	addlw	_packetBuffer& (0+255)
-   788  001C  0086               	movwf	6
-   789  001D  0187               	clrf	7
-   790  001E  087A               	movf	??_ISR,w
-   791  001F  0081               	movwf	1
-   792                           
-   793                           ;main.c: 63: i++;
-   794  0020  3001               	movlw	1
-   795  0021  00FA               	movwf	??_ISR
-   796  0022  087A               	movf	??_ISR,w
-   797  0023  07F6               	addwf	_i,f
-   798                           
-   799                           ;main.c: 64: if (i >= 6)
-   800  0024  3006               	movlw	6
-   801  0025  0276               	subwf	_i,w
-   802  0026  1C03               	skipc
-   803  0027  282B               	goto	i1l43
-   804                           
-   805                           ;main.c: 65: {
-   806                           ;main.c: 67: packetReceived = 1;
-   807  0028  01F8               	clrf	_packetReceived
-   808  0029  0AF8               	incf	_packetReceived,f
-   809                           
-   810                           ;main.c: 68: i = 0;
-   811  002A  01F6               	clrf	_i
-   812  002B                     i1l43:	
-   813  002B  087B               	movf	??_ISR+1,w
-   814  002C  0020               	movlb	0	; select bank0
-   815  002D  00FF               	movwf	127
-   816  002E  0009               	retfie
-   817  002F                     __end_of_ISR:	
+   747  0004                     _ISR:	
+   748                           
+   749                           ;incstack = 0
+   750                           ; Regs used in _ISR: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
+   751  0004  3180               	pagesel	$
+   752  0005  0020               	movlb	0	; select bank0
+   753  0006  087F               	movf	127,w
+   754  0007  00FB               	movwf	??_ISR+1
+   755                           
+   756                           ;main.c: 45: if (RCIF)
+   757  0008  1E91               	btfss	17,5	;volatile
+   758  0009  282B               	goto	i1l45
+   759                           
+   760                           ;main.c: 46: {
+   761                           ;main.c: 48: rxchar = getch();
+   762  000A  3180  20AE  3180   	fcall	_getch
+   763  000D  00FA               	movwf	??_ISR
+   764  000E  087A               	movf	??_ISR,w
+   765  000F  00F9               	movwf	_rxchar
+   766                           
+   767                           ;main.c: 49: if (packetCorrupt)
+   768  0010  0877               	movf	_packetCorrupt,w
+   769  0011  1903               	btfsc	3,2
+   770  0012  2818               	goto	i1l586
+   771                           
+   772                           ;main.c: 50: {
+   773                           ;main.c: 52: if (rxchar == 0x02)
+   774  0013  0879               	movf	_rxchar,w
+   775  0014  3A02               	xorlw	2
+   776  0015  1D03               	skipz
+   777  0016  282B               	goto	i1l45
+   778                           
+   779                           ;main.c: 53: {
+   780                           ;main.c: 55: packetCorrupt = 0;
+   781  0017  01F7               	clrf	_packetCorrupt
+   782  0018                     i1l586:	
+   783                           ;main.c: 57: else
+   784                           ;main.c: 58: {
+   785                           ;main.c: 59: return;
+   786                           
+   787                           ;main.c: 56: }
+   788                           
+   789                           
+   790                           ;main.c: 60: }
+   791                           ;main.c: 61: }
+   792                           ;main.c: 62: packetBuffer[i] = rxchar;
+   793  0018  0879               	movf	_rxchar,w
+   794  0019  00FA               	movwf	??_ISR
+   795  001A  0876               	movf	_i,w
+   796  001B  3E70               	addlw	_packetBuffer& (0+255)
+   797  001C  0086               	movwf	6
+   798  001D  0187               	clrf	7
+   799  001E  087A               	movf	??_ISR,w
+   800  001F  0081               	movwf	1
+   801                           
+   802                           ;main.c: 63: i++;
+   803  0020  3001               	movlw	1
+   804  0021  00FA               	movwf	??_ISR
+   805  0022  087A               	movf	??_ISR,w
+   806  0023  07F6               	addwf	_i,f
+   807                           
+   808                           ;main.c: 64: if (i >= 6)
+   809  0024  3006               	movlw	6
+   810  0025  0276               	subwf	_i,w
+   811  0026  1C03               	skipc
+   812  0027  282B               	goto	i1l45
+   813                           
+   814                           ;main.c: 65: {
+   815                           ;main.c: 67: packetReceived = 1;
+   816  0028  01F8               	clrf	_packetReceived
+   817  0029  0AF8               	incf	_packetReceived,f
    818                           
-   819                           	psect	text3
-   820  00AC                     __ptext3:	
-   821 ;; *************** function _getch *****************
-   822 ;; Defined at:
-   823 ;;		line 15 in file "usart.c"
-   824 ;; Parameters:    Size  Location     Type
-   825 ;;		None
-   826 ;; Auto vars:     Size  Location     Type
-   827 ;;		None
-   828 ;; Return value:  Size  Location     Type
-   829 ;;                  1    wreg      unsigned char 
-   830 ;; Registers used:
-   831 ;;		wreg
-   832 ;; Tracked objects:
-   833 ;;		On entry : 0/0
-   834 ;;		On exit  : 0/0
-   835 ;;		Unchanged: 0/0
-   836 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   819                           ;main.c: 68: i = 0;
+   820  002A  01F6               	clrf	_i
+   821  002B                     i1l45:	
+   822  002B  087B               	movf	??_ISR+1,w
+   823  002C  0020               	movlb	0	; select bank0
+   824  002D  00FF               	movwf	127
+   825  002E  0009               	retfie
+   826  002F                     __end_of_ISR:	
+   827                           
+   828                           	psect	text3
+   829  00AE                     __ptext3:	
+   830 ;; *************** function _getch *****************
+   831 ;; Defined at:
+   832 ;;		line 15 in file "usart.c"
+   833 ;; Parameters:    Size  Location     Type
+   834 ;;		None
+   835 ;; Auto vars:     Size  Location     Type
+   836 ;;		None
+   837 ;; Return value:  Size  Location     Type
+   838 ;;                  1    wreg      unsigned char 
+   839 ;; Registers used:
+   840 ;;		wreg
+   841 ;; Tracked objects:
+   842 ;;		On entry : 0/0
+   843 ;;		On exit  : 0/0
+   844 ;;		Unchanged: 0/0
+   845 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12
-   837 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   846 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   838 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   847 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   839 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   848 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   840 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   849 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   841 ;;Total ram usage:        0 bytes
-   842 ;; Hardware stack levels used:    1
-   843 ;; This function calls:
-   844 ;;		Nothing
-   845 ;; This function is called by:
-   846 ;;		_ISR
-   847 ;;		_getche
-   848 ;; This function uses a non-reentrant model
-   849 ;;
-   850                           
-   851                           
-   852                           ;psect for function _getch
-   853  00AC                     _getch:	
-   854  00AC                     i1l97:	
-   855                           ;usart.c: 18: continue;
-   856                           
-   857                           ;usart.c: 17: while(!RCIF)
-   858                           
-   859                           ;incstack = 0
-   860                           ; Regs used in _getch: [wreg]
-   861                           
-   862  00AC  0020               	movlb	0	; select bank0
-   863  00AD  1E91               	btfss	17,5	;volatile
-   864  00AE  28AC               	goto	i1l97
+   850 ;;Total ram usage:        0 bytes
+   851 ;; Hardware stack levels used:    1
+   852 ;; This function calls:
+   853 ;;		Nothing
+   854 ;; This function is called by:
+   855 ;;		_ISR
+   856 ;;		_getche
+   857 ;; This function uses a non-reentrant model
+   858 ;;
+   859                           
+   860                           
+   861                           ;psect for function _getch
+   862  00AE                     _getch:	
+   863  00AE                     i1l99:	
+   864                           ;usart.c: 18: continue;
    865                           
-   866                           ;usart.c: 19: return RCREG;
-   867  00AF  0023               	movlb	3	; select bank3
-   868  00B0  0819               	movf	25,w	;volatile
-   869  00B1  0008               	return
-   870  00B2                     __end_of_getch:	
-   871  007E                     btemp	set	126	;btemp
-   872  007E                     wtemp0	set	126
+   866                           ;usart.c: 17: while(!RCIF)
+   867                           
+   868                           ;incstack = 0
+   869                           ; Regs used in _getch: [wreg]
+   870                           
+   871  00AE  0020               	movlb	0	; select bank0
+   872  00AF  1E91               	btfss	17,5	;volatile
+   873  00B0  28AE               	goto	i1l99
+   874                           
+   875                           ;usart.c: 19: return RCREG;
+   876  00B1  0023               	movlb	3	; select bank3
+   877  00B2  0819               	movf	25,w	;volatile
+   878  00B3  0008               	return
+   879  00B4                     __end_of_getch:	
+   880  007E                     btemp	set	126	;btemp
+   881  007E                     wtemp0	set	126
 
 
 Data Sizes:
@@ -1174,35 +1183,36 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.21 build 54009 
-Symbol Table                                                                                   Tue Jan  7 05:14:48 2014
+Symbol Table                                                                                   Tue Jan  7 21:50:38 2014
 
-                      _i 0076              __CFG_CP$OFF 0000                       l69 008D  
-                    l512 0086                      l524 004E                      l532 005A  
-                    l516 0042                      l542 006A                      l552 0079  
-                    l528 0054                      l538 0063                      l546 0070  
-                    l556 007F                      _GIE 005F                      _ISR 0004  
+                      _i 0076              __CFG_CP$OFF 0000                       l71 008D  
+                    l520 0086                      l532 004E                      l540 005A  
+                    l524 0042                      l550 006A                      l560 0079  
+                    l536 0054                      l546 0063                      l554 0070  
+                    l564 007F                      _GIE 005F                      _ISR 0004  
            __CFG_BORV$LO 0000             __CFG_LVP$OFF 0000                     ?_ISR 007A  
-                   _PEIE 005E                     i1l43 002B                     _RCIE 048D  
-                   _RCIF 008D                     i1l97 00AC                     _TXIF 008C  
-           __CFG_WRT$OFF 0000                     _main 003E                     fsr1h 0007  
-                   indf1 0001                     fsr1l 0006                     btemp 007E  
-          __CFG_BOREN$ON 0000                     start 002F            __CFG_IESO$OFF 0000  
-    __CFG_PLLEN$DISABLED 0000            __CFG_MCLRE$ON 0000                    ??_ISR 007A  
-                  ?_main 007A            __CFG_WDTE$OFF 0000                    i1l578 0018  
-                  _RCREG 0199                    _RCSTA 019D                    _SPBRG 019B  
-                  _PORTC 000E                    _TXREG 019A                    _TXSTA 019E  
-          __CFG_PWRTE$ON 0000           __CFG_FCMEN$OFF 0000                    _getch 00AC  
+                   _LATC 010E                     _PEIE 005E                     _RCIE 048D  
+                   _RCIF 008D                     i1l45 002B                     i1l99 00AE  
+                   _TXIF 008C             __CFG_WRT$OFF 0000                     _main 003E  
+                   fsr1h 0007                     indf1 0001                     fsr1l 0006  
+                   btemp 007E            __CFG_BOREN$ON 0000                     start 002F  
+          __CFG_IESO$OFF 0000      __CFG_PLLEN$DISABLED 0000            __CFG_MCLRE$ON 0000  
+                  ??_ISR 007A                    ?_main 007A            __CFG_WDTE$OFF 0000  
+                  i1l586 0018                    _RCREG 0199                    _RCSTA 019D  
+                  _SPBRG 019B                    _TXREG 019A                    _TXSTA 019E  
+          __CFG_PWRTE$ON 0000           __CFG_FCMEN$OFF 0000                    _getch 00AE  
                   _setup 0090                    wtemp0 007E          __initialization 0031  
            __end_of_main 0090           __CFG_LPBOR$OFF 0000                   ??_main 007C  
     __CFG_USBLSCLK$48MHz 0000                   ?_getch 007A                   ?_setup 007A  
-          _packetCorrupt 0077                   _TRISC4 0474                   _TRISC5 0475  
-         __CFG_STVREN$ON 0000                   _rxchar 0079  __end_of__initialization 003B  
-         __pcstackCOMMON 007A            __end_of_getch 00B2            __end_of_setup 00AC  
-                ??_getch 007A                  ??_setup 007C               __pmaintext 003E  
-        __CFG_PLLMULT$3x 0000               __pintentry 0004           _packetReceived 0078  
-                __ptext0 0000                  __ptext1 0090                  __ptext3 00AC  
-           __size_of_ISR 002B     end_of_initialization 003B         __CFG_CLKOUTEN$ON 0000  
-       __CFG_FOSC$INTOSC 0000                _TRISCbits 008E      start_initialization 0031  
-            __end_of_ISR 002F             _packetBuffer 0070              __pbssCOMMON 0070  
-         __size_of_getch 0006           __size_of_setup 001C            __size_of_main 0052  
-               intlevel1 0000               _OSCCONbits 0099      __CFG_CPUDIV$CLKDIV2 0000  
+                 _ANSELC 018E            _packetCorrupt 0077                   _TRISC4 0474  
+                 _TRISC5 0475           __CFG_STVREN$ON 0000                   _rxchar 0079  
+__end_of__initialization 003B           __pcstackCOMMON 007A            __end_of_getch 00B4  
+          __end_of_setup 00AE                  ??_getch 007A                  ??_setup 007C  
+             __pmaintext 003E          __CFG_PLLMULT$3x 0000               __pintentry 0004  
+         _packetReceived 0078                  __ptext0 0000                  __ptext1 0090  
+                __ptext3 00AE             __size_of_ISR 002B     end_of_initialization 003B  
+       __CFG_CLKOUTEN$ON 0000         __CFG_FOSC$INTOSC 0000                _TRISCbits 008E  
+    start_initialization 0031              __end_of_ISR 002F             _packetBuffer 0070  
+            __pbssCOMMON 0070           __size_of_getch 0006           __size_of_setup 001E  
+          __size_of_main 0052                 intlevel1 0000               _OSCCONbits 0099  
+    __CFG_CPUDIV$CLKDIV2 0000  
