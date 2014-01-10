@@ -37,6 +37,9 @@ unsigned char leftPWM = 0;
 unsigned char leftDir = 1;
 unsigned char rightPWM = 0;
 unsigned char rightDir = 1;
+#define DIVISOR 12
+#define MAX_RANGE 100
+const unsigned char SPEED_INCREMENTS = MAX_RANGE / DIVISOR;
 
 unsigned char packetBuffer[6];
 unsigned char packetReceived = 0;
@@ -44,68 +47,26 @@ unsigned char packetCorrupt = 0;
 
 
 unsigned char rxchar, i = 0;
+unsigned char checkBattery = 1;
+unsigned char batteryLow = 0;
+const unsigned short CUTOFF_VOLTAGE = 0x8D80;
 
 void interrupt ISR()
 {
-    if (TMR2IF) //Was the interrupt the Timer 2 comparator?
+    if (ADIF)
     {
-        if (PR2 == 0xff)
-        {
-            if (leftPWM > 0 && rightPWM > 0)
-            {
-                PR2 = leftPWM < rightPWM ? leftPWM : rightPWM;
-                LATAbits.LATA4 = 1;
-                LATAbits.LATA5 = 1;
+        ADON = 0; //switch off adc
 
-            }
-            else if (leftPWM > 0)
-            {
-                PR2 = leftPWM;
-                LATAbits.LATA4 = 1;
-            }
-            else if (rightPWM > 0)
-            {
-                PR2 = rightPWM;
-                LATAbits.LATA5 = 1;
-            }
+        if (ADRES < CUTOFF_VOLTAGE)
+        {
+            batteryLow = 1;
         }
         else
         {
-            if (PR2 == leftPWM && leftPWM == rightPWM)
-            {
-                LATAbits.LATA4 = 0;
-                LATAbits.LATA5 = 0;
-                PR2 = 0xff;
-            }
-            else
-            {
-                if (PR2 == leftPWM)
-                {
-                    LATAbits.LATA4 = 0;
-                    if (leftPWM > rightPWM)
-                    {
-                        PR2 = 0xff;
-                    }
-                    else if (rightPWM != 0)
-                    {
-                        PR2 = rightPWM;
-                    }
-                }
-                else if (PR2 == rightPWM)
-                {
-                    LATAbits.LATA5 = 0;
-                    if (rightPWM >= leftPWM)
-                    {
-                        PR2 = 0xff;
-                    }
-                    else if (leftPWM != 0)
-                    {
-                        PR2 = leftPWM;
-                    }
-                }
-            }
+            batteryLow = 0;
         }
-        TMR2IF = 0;
+        checkBattery = 1;
+        ADIF = 0;
     }
     if (RCIF) //Was the interrupt the USART RX interrupt?
     {
@@ -142,32 +103,44 @@ void setup()
     init_comms(); // set up the USART - settings defined in usart.h
 
     //Setup I/O directions
-    TRISAbits.TRISA4 = 0; // Left Enable
+    TRISAbits.TRISA4 = 1; // Voltage Monitor
     TRISAbits.TRISA5 = 0; // Right Enable
     TRISCbits.TRISC0 = 0; // L1
     TRISCbits.TRISC1 = 0; // L2
     TRISCbits.TRISC2 = 0; // L3
     TRISCbits.TRISC3 = 0; // L4
-    TRISCbits.TRISC4 = 0; // TX
+    TRISCbits.TRISC4 = 0; // Left Enable
     TRISCbits.TRISC5 = 1; // RX
 
-    //Set all pins to digital I/O
+    //All pins are digital I/O except RA4
     ANSELC = 0x00;
     ANSELA = 0x00;
+    ANSELAbits.ANSA4 = 1;
 
     //Set all outputs to 0
     LATC = 0x00;
     LATA = 0x00;
 
-    //Setup timer for PWM
-    T2CONbits.T2CKPS = 0b11;
-    T2CONbits.TMR2ON = 1;
+    //Set up ADC
+    ADCON0bits.CHS = 0b00011; //Voltage monitor is on the AN3(RA4) pin
+    ADCON1bits.ADCS = 0b101;
+
 
     //Setup interrupts
     RCIE = 1; //Enable USART RX interrupt
-    TMR2IE = 1; //Enable Timer 2 comparator interrupt
+    ADIE = 1; //Enable ADC interrupt
     PEIE = 1; //Enable perifferal interrupts
     GIE = 1; //Enable global interrupts
+}
+
+
+
+void checkBatteryVoltage()
+{
+    checkBattery = 0;
+    ADON = 1; //switch on the adc module
+
+    ADGO = 1; //Start conversion
 }
 
 void main()
@@ -178,10 +151,21 @@ void main()
     int rightPWMtemp = 0;
     int xAbs = 0;
     int yAbs = 0;
+    int pwmCount = 0;
 
     setup();
     while (1)
     {
+        if(checkBattery)
+        {
+            checkBatteryVoltage();
+        }
+        if (batteryLow)
+        {
+            LATCbits.LATC4 = 0;
+            LATAbits.LATA5 = 0;
+            continue;
+        }
         if (packetReceived)
         {
             if (packetBuffer[0] == 0x02 && packetBuffer[5] == 0x03)
@@ -281,24 +265,9 @@ void main()
                     rightPWMtemp = 100;
                 }
 
-                GIE = 0;
-                if (leftPWMtemp == 0)
-                {
-                    leftPWM = 0;
-                }
-                else
-                {
-                    leftPWM = (leftPWMtemp * 2) + 50;
-                }
+                leftPWM = leftPWMtemp / DIVISOR;
+                rightPWM = rightPWMtemp / DIVISOR;
 
-                if (rightPWMtemp == 0)
-                {
-                    rightPWM = 0;
-                }
-                else
-                {
-                    rightPWM = (rightPWMtemp * 2) + 50;
-                }
                 if (leftDir)
                 {
 
@@ -321,94 +290,6 @@ void main()
                     LATCbits.LATC2 = 1;
                     LATCbits.LATC3 = 0;
                 }
-
-                GIE = 1;
-
-
-
-                //Packet start and stop characters OK
-                //                if (packetBuffer[1] == 0)
-                //                {
-                //                    //Joystick X left
-                //                    if (packetBuffer[3] == 0)
-                //                    {
-                //                        //Joystick Y down
-                //                        LATC = 0b00000100;
-                //                    }
-                //                    else if (packetBuffer[3] == 1)
-                //                    {
-                //                        //Joystick Y center
-                //                        LATC = 0b00001001;
-                //                    }
-                //                    else if (packetBuffer[3] == 2)
-                //                    {
-                //                        //Joystick Y up
-                //                        LATC = 0b00001000;
-                //                    }
-                //                    else
-                //                    {
-                //                        //Joystick Y corrupt
-                //                        packetCorrupt = 1;
-                //                        //putch('a');
-                //                    }
-                //                }
-                //                else if (packetBuffer[1] == 1)
-                //                {
-                //                    //Joystick X center
-                //                    if (packetBuffer[3] == 0)
-                //                    {
-                //                        //Joystick Y down
-                //                        LATC = 0b00000101;
-                //                    }
-                //                    else if (packetBuffer[3] == 1)
-                //                    {
-                //                        //Joystick Y center
-                //                        LATC = 0b00000000;
-                //                    }
-                //                    else if (packetBuffer[3] == 2)
-                //                    {
-                //                        //Joystick Y up
-                //                        LATC = 0b00001010;
-                //                    }
-                //                    else
-                //                    {
-                //                        //Joystick Y corrupt
-                //                        packetCorrupt = 1;
-                //                        //putch('b');
-                //                    }
-                //                }
-                //                else if (packetBuffer[1] == 2)
-                //                {
-                //                    //Joystick X right
-                //                    if (packetBuffer[3] == 0)
-                //                    {
-                //                        //Joystick Y down
-                //                        LATC = 0b00000010;
-                //                    }
-                //                    else if (packetBuffer[3] == 1)
-                //                    {
-                //                        //Joystick Y center
-                //                        LATC = 0b00000110;
-                //                    }
-                //                    else if (packetBuffer[3] == 2)
-                //                    {
-                //                        //Joystick Y up
-                //                        LATC = 0b00000001;
-                //                    }
-                //                    else
-                //                    {
-                //                        //Joystick Y corrupt
-                //                        packetCorrupt = 1;
-                //                        //putch('c');
-                //                    }
-                //                }
-                //                else
-                //                {
-                //                    //Joystick X corrupt
-                //                    packetCorrupt = 1;
-                //                    //putch('d');
-                //                }
-
             }
             else
             {
@@ -416,6 +297,27 @@ void main()
                 packetCorrupt = 1;
             }
             packetReceived = 0;
+        }
+        if (pwmCount > leftPWM)
+        {
+            LATCbits.LATC4 = 0;
+        }
+        else if (leftPWM > 0)
+        {
+            LATCbits.LATC4 = 1;
+        }
+        if (pwmCount > rightPWM)
+        {
+            LATAbits.LATA5 = 0;
+        }
+        else if (rightPWM > 0)
+        {
+            LATAbits.LATA5 = 1;
+        }
+        pwmCount++;
+        if (pwmCount > SPEED_INCREMENTS)
+        {
+            pwmCount = 0;
         }
     }
 }

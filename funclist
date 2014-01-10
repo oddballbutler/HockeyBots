@@ -1,6 +1,11 @@
-_ISR: CODE, 4 0 140
-_main: CODE, 168 0 422
-__initialization: CODE, 146 0 19
-_getch: CODE, 629 0 6
-_setup: CODE, 590 0 39
-Total: 626
+___awdiv: CODE, 618 0 84
+_SPEED_INCREMENTS: STRING, 761 0 1
+__stringtab: STRING, 758 0 1
+_ISR: CODE, 4 0 72
+_main: CODE, 105 0 513
+__initialization: CODE, 78 0 24
+_CUTOFF_VOLTAGE: STRING, 759 0 2
+_getch: CODE, 752 0 6
+_setup: CODE, 702 0 44
+_checkBatteryVoltage: CODE, 746 0 6
+Total: 753
