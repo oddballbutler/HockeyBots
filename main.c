@@ -49,7 +49,7 @@ unsigned char packetCorrupt = 0;
 unsigned char rxchar, i = 0;
 unsigned char checkBattery = 1;
 unsigned char batteryLow = 0;
-const unsigned short CUTOFF_VOLTAGE = 0x8D80;
+const unsigned short CUTOFF_VOLTAGE = 0xB000;
 
 void interrupt ISR()
 {
@@ -101,6 +101,7 @@ void setup()
 
     //Setup USART
     init_comms(); // set up the USART - settings defined in usart.h
+    TXEN = 0; //Disable transmit
 
     //Setup I/O directions
     TRISAbits.TRISA4 = 1; // Voltage Monitor
@@ -156,7 +157,7 @@ void main()
     setup();
     while (1)
     {
-        if(checkBattery)
+        if(checkBattery && ((pwmCount == SPEED_INCREMENTS) || batteryLow))
         {
             checkBatteryVoltage();
         }

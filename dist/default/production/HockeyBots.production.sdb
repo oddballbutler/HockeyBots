@@ -78,9 +78,9 @@
 [v _ISR ISR `II(v  1 e 0 0 ]
 "98
 [v _setup setup `(v  1 e 0 0 ]
-"139
+"140
 [v _checkBatteryVoltage checkBatteryVoltage `(v  1 e 0 0 ]
-"147
+"148
 [v _main main `(v  1 e 0 0 ]
 "7 /Users/jeremybutler/Projects/HockeyBots/git/HockeyBots/usart.c
 [v _putch putch `(v  1 e 0 0 ]
@@ -88,14 +88,14 @@
 [v _getch getch `(uc  1 e 1 0 ]
 "24
 [v _getche getche `(uc  1 e 1 0 ]
-[s S60 . 1 `uc 1 . 1 0 :4:0 
+[s S61 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TRISA4 1 0 :1:4 
 `uc 1 TRISA5 1 0 :1:5 
 ]
 "932 /Applications/microchip/xc8/v1.21/include/pic16f1455.h
-[u S64 . 1 `S60 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES64  1 e 1 @140 ]
-[s S71 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S65 . 1 `S61 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES65  1 e 1 @140 ]
+[s S72 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -103,8 +103,8 @@
 `uc 1 TRISC5 1 0 :1:5 
 ]
 "961
-[u S78 . 1 `S71 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES78  1 e 1 @142 ]
+[u S79 . 1 `S72 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES79  1 e 1 @142 ]
 [s S27 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 IRCF 1 0 :4:2 
 `uc 1 SPLLMULT 1 0 :1:6 
@@ -122,12 +122,12 @@
 [v _OSCCONbits OSCCONbits `VES39  1 e 1 @153 ]
 "1486
 [v _ADRES ADRES `VEus  1 e 2 @155 ]
-[s S106 . 1 `uc 1 ADON 1 0 :1:0 
+[s S107 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
 "1555
-[s S110 . 1 `uc 1 . 1 0 :1:0 
+[s S111 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADGO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -135,44 +135,44 @@
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-[s S118 . 1 `uc 1 . 1 0 :1:0 
+[s S119 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[u S121 . 1 `S106 1 . 1 0 `S110 1 . 1 0 `S118 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES121  1 e 1 @157 ]
-[s S141 . 1 `uc 1 ADPREF 1 0 :2:0 
+[u S122 . 1 `S107 1 . 1 0 `S111 1 . 1 0 `S119 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES122  1 e 1 @157 ]
+[s S142 . 1 `uc 1 ADPREF 1 0 :2:0 
 `uc 1 . 1 0 :2:2 
 `uc 1 ADCS 1 0 :3:4 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "1630
-[s S146 . 1 `uc 1 ADPREF0 1 0 :1:0 
+[s S147 . 1 `uc 1 ADPREF0 1 0 :1:0 
 `uc 1 ADPREF1 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 ADCS0 1 0 :1:4 
 `uc 1 ADCS1 1 0 :1:5 
 `uc 1 ADCS2 1 0 :1:6 
 ]
-[u S153 . 1 `S141 1 . 1 0 `S146 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES153  1 e 1 @158 ]
+[u S154 . 1 `S142 1 . 1 0 `S147 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES154  1 e 1 @158 ]
 "1715
 [v _LATA LATA `VEuc  1 e 1 @268 ]
 "1727
-[v _LATAbits LATAbits `VES64  1 e 1 @268 ]
+[v _LATAbits LATAbits `VES65  1 e 1 @268 ]
 "1741
 [v _LATC LATC `VEuc  1 e 1 @270 ]
 "1756
-[v _LATCbits LATCbits `VES78  1 e 1 @270 ]
+[v _LATCbits LATCbits `VES79  1 e 1 @270 ]
 "2316
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
-[s S90 . 1 `uc 1 . 1 0 :4:0 
+[s S91 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 ANSA4 1 0 :1:4 
 ]
 "2330
-[s S93 . 1 `uc 1 ANSELA 1 0 :6:0 
+[s S94 . 1 `uc 1 ANSELA 1 0 :6:0 
 ]
-[u S95 . 1 `S90 1 . 1 0 `S93 1 . 1 0 ]
-[v _ANSELAbits ANSELAbits `VES95  1 e 1 @396 ]
+[u S96 . 1 `S91 1 . 1 0 `S94 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES96  1 e 1 @396 ]
 "2344
 [v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
 "2584
@@ -205,6 +205,8 @@
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1140 ]
 "6365
 [v _TRISC5 TRISC5 `VEb  1 e 0 @1141 ]
+"6391
+[v _TXEN TXEN `VEb  1 e 0 @3317 ]
 "6395
 [v _TXIF TXIF `VEb  1 e 0 @140 ]
 "36 /Users/jeremybutler/Projects/HockeyBots/git/HockeyBots/main.c
@@ -232,24 +234,24 @@
 [v _batteryLow batteryLow `uc  1 e 1 0 ]
 "52
 [v _CUTOFF_VOLTAGE CUTOFF_VOLTAGE `DCCus  1 e 2 0 ]
-"147
+"148
 [v _main main `(v  1 e 0 0 ]
 {
-"149
-[v main@y y `i  1 a 2 20 ]
-"148
-[v main@x x `i  1 a 2 18 ]
-"153
-[v main@yAbs yAbs `i  1 a 2 16 ]
-"152
-[v main@xAbs xAbs `i  1 a 2 14 ]
-"154
-[v main@pwmCount pwmCount `i  1 a 2 12 ]
-"151
-[v main@rightPWMtemp rightPWMtemp `i  1 a 2 10 ]
 "150
+[v main@y y `i  1 a 2 20 ]
+"149
+[v main@x x `i  1 a 2 18 ]
+"155
+[v main@pwmCount pwmCount `i  1 a 2 16 ]
+"154
+[v main@yAbs yAbs `i  1 a 2 14 ]
+"153
+[v main@xAbs xAbs `i  1 a 2 12 ]
+"152
+[v main@rightPWMtemp rightPWMtemp `i  1 a 2 10 ]
+"151
 [v main@leftPWMtemp leftPWMtemp `i  1 a 2 8 ]
-"323
+"324
 } 0
 "5 /Applications/microchip/xc8/v1.21/sources/pic/awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -264,15 +266,15 @@
 [v ___awdiv@dividend dividend `i  1 p 2 5 ]
 "37
 } 0
-"139 /Users/jeremybutler/Projects/HockeyBots/git/HockeyBots/main.c
+"140 /Users/jeremybutler/Projects/HockeyBots/git/HockeyBots/main.c
 [v _checkBatteryVoltage checkBatteryVoltage `(v  1 e 0 0 ]
 {
-"144
+"145
 } 0
 "98
 [v _setup setup `(v  1 e 0 0 ]
 {
-"134
+"135
 } 0
 "55
 [v _ISR ISR `II(v  1 e 0 0 ]

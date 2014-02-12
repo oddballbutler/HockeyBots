@@ -3351,7 +3351,7 @@ unsigned char packetCorrupt = 0;
 unsigned char rxchar, i = 0;
 unsigned char checkBattery = 1;
 unsigned char batteryLow = 0;
-const unsigned short CUTOFF_VOLTAGE = 0x8D80;
+const unsigned short CUTOFF_VOLTAGE = 0xB000;
 
 void interrupt ISR()
 {
@@ -3403,6 +3403,7 @@ OSCCONbits.IRCF = 0b1111;
 
 
 TRISC5 = 1; TRISC4 = 1; SPBRG = ((int)(16000000L/(16UL * 9600) -1)); RCSTA = (0|0x90); TXSTA = (0x4|0|0x20);
+TXEN = 0;
 
 
 TRISAbits.TRISA4 = 1;
@@ -3458,7 +3459,7 @@ int pwmCount = 0;
 setup();
 while (1)
 {
-if(checkBattery)
+if(checkBattery && ((pwmCount == SPEED_INCREMENTS) || batteryLow))
 {
 checkBatteryVoltage();
 }

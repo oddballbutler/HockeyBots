@@ -5,7 +5,7 @@ Linker command line:
 --edf=/Applications/microchip/xc8/v1.21/dat/en_msgs.txt -cs \
   -h+dist/default/production/HockeyBots.production.sym \
   --cmf=dist/default/production/HockeyBots.production.cmf -z -Q16F1455 \
-  -o/tmp/cgtBgzfps -Mdist/default/production/HockeyBots.production.map -E1 \
+  -o/tmp/cgtLjW9Mz -Mdist/default/production/HockeyBots.production.map -E1 \
   -ver=XC8 -ACONST=00h-0FFhx32 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -AENTRY=00h-0FFhx32 -ASTRING=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh \
@@ -28,7 +28,7 @@ Linker command line:
   -ASFR31=0F80h-0FEFh -preset_vec=00h,intentry=04h,init,end_init \
   -ppowerup=CODE -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-08008h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
-  -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/cgtrpHRkH.obj \
+  -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/cgth4q0Qy.obj \
   dist/default/production/HockeyBots.production.obj 
 
 Object code version is 3.11
@@ -38,25 +38,25 @@ Machine type is 16F1455
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtrpHRkH.obj
+/tmp/cgth4q0Qy.obj
                 end_init                             4C       4C        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
 dist/default/production/HockeyBots.production.obj
                 cinit                                4E       4E       1B        8       0
                 intentry                              4        4       48        8       0
-                text5                               2F0      2F0        6        8       0
-                text3                               2BE      2BE       2C        8       0
-                text2                               2EA      2EA        6        8       0
-                text1                               26A      26A       54        8       0
-                maintext                             69       69      201        8       0
+                text5                               302      302        6        8       0
+                text3                               2CF      2CF       2D        8       0
+                text2                               2FC      2FC        6        8       0
+                text1                               27B      27B       54        8       0
+                maintext                             69       69      212        8       0
                 cstackBANK0                          20       20       16       20       1
                 cstackCOMMON                         70       70        8       70       1
                 dataBANK0                            41       41        3       20       1
                 bssBANK0                             36       36        B       20       1
                 bssCOMMON                            78       78        2       70       1
-                strings                             2F6      2F6        4      5EC       0
-                idataBANK0                          2FA      2FA        3      5F4       0
+                strings                             308      308        4      610       0
+                idataBANK0                          30C      30C        3      618       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CONST          
@@ -66,19 +66,19 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                4E       4E       1B         0
                 intentry                              4        4       48         0
                 reset_vec                             0        0        2         0
-                text5                               2F0      2F0        6         0
-                text3                               2BE      2BE       2C         0
-                text2                               2EA      2EA        6         0
-                text1                               26A      26A       54         0
-                maintext                             69       69      201         0
-                idataBANK0                          2FA      2FA        3         0
+                text5                               302      302        6         0
+                text3                               2CF      2CF       2D         0
+                text2                               2FC      2FC        6         0
+                text1                               27B      27B       54         0
+                maintext                             69       69      212         0
+                idataBANK0                          30C      30C        3         0
 
         CLASS   STRCODE        
 
         CLASS   ENTRY          
 
         CLASS   STRING         
-                strings                             2F6      2F6        4         0
+                strings                             308      308        4         0
 
         CLASS   COMMON         
                 cstackCOMMON                         70       70        8         1
@@ -234,11 +234,11 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  0002F2  0002F6         8       0  CODE        2
+                intentry                       000004  000304  000308         8       0  CODE        2
                 cstackBANK0                    000020  000024  000044        20       1  BANK0       1
                 cstackCOMMON                   000070  00000A  00007A        70       1  COMMON      1
-                strings                        0002F6  000004  0002FA       5EC       0  STRING      2
-                idataBANK0                     0002FA  000003  0002FD       5F4       0  CODE        2
+                strings                        000308  000004  00030C       610       0  STRING      2
+                idataBANK0                     00030C  000003  00030F       618       0  CODE        2
                 config                         008007  000002  008009     1000E       0  CONFIG      2
 
 
@@ -260,12 +260,12 @@ UNUSED ADDRESS RANGES
         BANK9            004A0-004EF              50           1
         BIGRAM           02000-023EF             3F0           1
         CODE             00002-00003               2           2
-                         002FD-01FFF             800
+                         0030F-01FFF             800
         COMMON           0007A-0007D               4           1
         CONST            00002-00003               2           2
-                         002FD-01FFF             100
+                         0030F-01FFF             100
         ENTRY            00002-00003               2           2
-                         002FD-01FFF             100
+                         0030F-01FFF             100
         IDLOC            08000-08003               4           2
         RAM              00044-0006F              2C           1
                          000A0-000EF              50
@@ -313,9 +313,9 @@ UNUSED ADDRESS RANGES
         SFR8             00400-0041F              20           1
         SFR9             00480-0049F              20           1
         STRCODE          00002-00003               2           2
-                         002FD-01FFF            1D03
+                         0030F-01FFF            1CF1
         STRING           00002-00003               2           2
-                         002FD-01FFF             100
+                         0030F-01FFF             100
 
                                   Symbol Table
 
@@ -330,7 +330,7 @@ _ADRES                        (abs)        0009B
 _ANSELA                       (abs)        0018C
 _ANSELAbits                   (abs)        0018C
 _ANSELC                       (abs)        0018E
-_CUTOFF_VOLTAGE               strings      002F7
+_CUTOFF_VOLTAGE               strings      00309
 _GIE                          (abs)        0005F
 _ISR                          intentry     00004
 _LATA                         (abs)        0010C
@@ -344,11 +344,12 @@ _RCIF                         (abs)        0008D
 _RCREG                        (abs)        00199
 _RCSTA                        (abs)        0019D
 _SPBRG                        (abs)        0019B
-_SPEED_INCREMENTS             strings      002F9
+_SPEED_INCREMENTS             strings      0030B
 _TRISAbits                    (abs)        0008C
 _TRISC4                       (abs)        00474
 _TRISC5                       (abs)        00475
 _TRISCbits                    (abs)        0008E
+_TXEN                         (abs)        00CF5
 _TXIF                         (abs)        0008C
 _TXREG                        (abs)        0019A
 _TXSTA                        (abs)        0019E
@@ -550,48 +551,48 @@ __Lstrings                    strings      00000
 __Ltext                       text         00000
 __S0                          (abs)        08009
 __S1                          (abs)        0007A
-___awdiv                      text1        0026A
+___awdiv                      text1        0027B
 ___awdiv@counter              cstackBANK0  00020
 ___awdiv@dividend             cstackCOMMON 00075
 ___awdiv@divisor              cstackCOMMON 00073
 ___awdiv@quotient             cstackBANK0  00022
 ___awdiv@sign                 cstackBANK0  00021
 ___latbits                    (abs)        00002
-__end_of_CUTOFF_VOLTAGE       strings      002F9
+__end_of_CUTOFF_VOLTAGE       strings      0030B
 __end_of_ISR                  intentry     0004C
-__end_of_SPEED_INCREMENTS     strings      002FA
-__end_of___awdiv              text1        002BE
+__end_of_SPEED_INCREMENTS     strings      0030C
+__end_of___awdiv              text1        002CF
 __end_of__initialization      cinit        00066
-__end_of__stringtab           strings      002F7
-__end_of_checkBatteryVoltage  text2        002F0
-__end_of_getch                text5        002F6
-__end_of_main                 maintext     0026A
-__end_of_setup                text3        002EA
+__end_of__stringtab           strings      00309
+__end_of_checkBatteryVoltage  text2        00302
+__end_of_getch                text5        00308
+__end_of_main                 maintext     0027B
+__end_of_setup                text3        002FC
 __initialization              cinit        0004E
 __pbssBANK0                   bssBANK0     00036
 __pbssCOMMON                  bssCOMMON    00078
 __pcstackBANK0                cstackBANK0  00020
 __pcstackCOMMON               cstackCOMMON 00070
 __pdataBANK0                  dataBANK0    00041
-__pidataBANK0                 idataBANK0   002FA
+__pidataBANK0                 idataBANK0   0030C
 __pintentry                   intentry     00004
 __pmaintext                   maintext     00069
-__pstrings                    strings      002F6
-__ptext1                      text1        0026A
-__ptext2                      text2        002EA
-__ptext3                      text3        002BE
-__ptext5                      text5        002F0
+__pstrings                    strings      00308
+__ptext1                      text1        0027B
+__ptext2                      text2        002FC
+__ptext3                      text3        002CF
+__ptext5                      text5        00302
 __size_of_ISR                 (abs)        00000
 __size_of___awdiv             (abs)        00000
 __size_of_checkBatteryVoltage (abs)        00000
 __size_of_getch               (abs)        00000
 __size_of_main                (abs)        00000
 __size_of_setup               (abs)        00000
-__stringtab                   strings      002F6
+__stringtab                   strings      00308
 _batteryLow                   bssBANK0     0003C
 _checkBattery                 dataBANK0    00041
-_checkBatteryVoltage          text2        002EA
-_getch                        text5        002F0
+_checkBatteryVoltage          text2        002FC
+_getch                        text5        00302
 _i                            bssCOMMON    00078
 _leftDir                      dataBANK0    00042
 _leftPWM                      bssBANK0     0003D
@@ -602,7 +603,7 @@ _packetReceived               bssBANK0     0003F
 _rightDir                     dataBANK0    00043
 _rightPWM                     bssBANK0     00040
 _rxchar                       bssCOMMON    00079
-_setup                        text3        002BE
+_setup                        text3        002CF
 btemp                         (abs)        0007E
 end_of_initialization         cinit        00066
 intlevel0                     functab      00000
@@ -612,12 +613,12 @@ intlevel3                     functab      00000
 intlevel4                     functab      00000
 intlevel5                     functab      00000
 main@leftPWMtemp              cstackBANK0  00028
-main@pwmCount                 cstackBANK0  0002C
+main@pwmCount                 cstackBANK0  00030
 main@rightPWMtemp             cstackBANK0  0002A
 main@x                        cstackBANK0  00032
-main@xAbs                     cstackBANK0  0002E
+main@xAbs                     cstackBANK0  0002C
 main@y                        cstackBANK0  00034
-main@yAbs                     cstackBANK0  00030
+main@yAbs                     cstackBANK0  0002E
 reset_vec                     reset_vec    00000
 start                         init         0004C
 start_initialization          cinit        0004E
@@ -628,15 +629,15 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 147 in file "main.c"
+		line 148 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
   y               2   20[BANK0 ] int 
   x               2   18[BANK0 ] int 
-  yAbs            2   16[BANK0 ] int 
-  xAbs            2   14[BANK0 ] int 
-  pwmCount        2   12[BANK0 ] int 
+  pwmCount        2   16[BANK0 ] int 
+  yAbs            2   14[BANK0 ] int 
+  xAbs            2   12[BANK0 ] int 
   rightPWMtemp    2   10[BANK0 ] int 
   leftPWMtemp     2    8[BANK0 ] int 
  Return value:  Size  Location     Type
@@ -698,7 +699,7 @@ Total ram usage:        9 bytes
 
  *************** function _checkBatteryVoltage *****************
  Defined at:
-		line 139 in file "main.c"
+		line 140 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -821,28 +822,28 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 /Applications/microchip/xc8/v1.21/sources/pic/awdiv.c
-		___awdiv       		CODE           	026A	0000	84
+		___awdiv       		CODE           	027B	0000	84
 
 /Applications/microchip/xc8/v1.21/sources/pic/awdiv.c estimated size: 84
 
 shared
-		_SPEED_INCREMEN		STRING         	02F9	0000	1
-		__stringtab    		STRING         	02F6	0000	1
+		_SPEED_INCREMEN		STRING         	030B	0000	1
+		__stringtab    		STRING         	0308	0000	1
 		__initializatio		CODE           	004E	0000	24
-		_CUTOFF_VOLTAGE		STRING         	02F7	0000	2
+		_CUTOFF_VOLTAGE		STRING         	0309	0000	2
 
 shared estimated size: 28
 
 main.c
 		_ISR           		CODE           	0004	0000	72
-		_main          		CODE           	0069	0000	513
-		_setup         		CODE           	02BE	0000	44
-		_checkBatteryVo		CODE           	02EA	0000	6
+		_main          		CODE           	0069	0000	530
+		_setup         		CODE           	02CF	0000	45
+		_checkBatteryVo		CODE           	02FC	0000	6
 
-main.c estimated size: 635
+main.c estimated size: 653
 
 usart.c
-		_getch         		CODE           	02F0	0000	6
+		_getch         		CODE           	0302	0000	6
 
 usart.c estimated size: 6
 
